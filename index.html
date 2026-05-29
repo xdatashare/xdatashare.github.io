@@ -227,6 +227,24 @@
   @media(max-width:620px){.conn-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:440px){.conn-grid{grid-template-columns:1fr}}
 
+  /* ---------- CRED trust band ---------- */
+  .cred-band{background:var(--paper-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cred-band .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+  .cred-seal{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:34px 32px;overflow:hidden}
+  .cred-seal::before{content:"";position:absolute;right:-50px;top:-50px;width:200px;height:200px;border:60px solid rgba(235,32,38,.06);border-radius:50%}
+  .cred-seal .stamp{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border:1px solid rgba(235,32,38,.4);padding:7px 14px;border-radius:30px;margin-bottom:22px}
+  .cred-seal .stamp svg{width:15px;height:15px}
+  .cred-seal h3{font-size:1.45rem;margin-bottom:12px;position:relative}
+  .cred-seal p{color:var(--muted);font-size:.97rem;position:relative}
+  .cred-seal .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;position:relative}
+  .cred-seal .meta span{font-family:'JetBrains Mono';font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--paper-warm);border:1px solid var(--line);padding:6px 11px;border-radius:20px}
+  .cred-band .pitch h2{font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.025em}
+  .cred-band .pitch p{color:var(--muted);font-size:1.06rem;margin-top:18px}
+  .cred-band .pitch p strong{color:var(--ink);font-weight:600}
+  .cred-band .pitch .ex-link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--red);font-weight:600;font-size:.95rem;transition:gap .25s var(--ease)}
+  .cred-band .pitch .ex-link:hover{gap:13px}
+  @media(max-width:840px){.cred-band .wrap{grid-template-columns:1fr;gap:34px}}
+
   /* ---------- Audience ---------- */
   .aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
   .aud{border:1px solid var(--line);border-radius:6px;padding:30px 26px;transition:transform .3s var(--ease),box-shadow .3s}
@@ -652,7 +670,7 @@
         <div class="org">Top Doctors · TopHealthTech</div>
         <h3>Global HDS</h3>
         <p>Espacio global de datos de salud que conecta a proveedores y plataformas del sector sanitario bajo reglas comunes de confianza y soberanía del dato.</p>
-        <span class="link muted">Espacio Global de Datos de Salud</span>
+        <a class="link" href="https://eds.tophealthtech.ai/" target="_blank" rel="noopener">eds.tophealthtech.ai <span>↗</span></a>
       </div>
       <div class="dep">
         <div class="org">IDARA · Hospital de Pontevedra</div>
@@ -701,6 +719,33 @@
         <div class="conn-top"><span class="conn-mode mode-sedia">Proyecto SEDIA</span></div>
         <h4>DATIACARE</h4>
         <p>Empresa I4LIFE. Conector desplegado dentro de un proyecto de la convocatoria SEDIA, participante en el OneHealth DataSpace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRED TRUST LIST -->
+<section class="cred-band pad">
+  <div class="wrap">
+    <div class="pitch rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Confianza certificable</span></div>
+      <h2>Listos para la Lista de Confianza del CRED</h2>
+      <p>Los espacios de datos creados con XDATASHARE están <strong>preparados para incorporarse a la Lista de Confianza de Espacios de Datos</strong> del CRED (Centro de Referencia de Espacios de Datos), el registro oficial que identifica en España los espacios que superan los filtros técnicos, de interoperabilidad y de gobernanza, conforme a la Especificación <strong>UNE 0087:2025</strong>.</p>
+      <p>Es el caso del espacio <strong>Global HDS</strong>, construido sobre XDATASHARE.</p>
+      <a class="ex-link" href="https://eds.tophealthtech.ai/" target="_blank" rel="noopener">Ver Global HDS <span>↗</span></a>
+    </div>
+    <div class="cred-seal rv">
+      <span class="stamp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        Sello de confianza · CRED
+      </span>
+      <h3>Espacio de datos de confianza</h3>
+      <p>El CRED gestiona la Lista de Confianza, un registro oficial y voluntario que otorga un sello de excelencia a los espacios que garantizan un uso seguro, ético y transparente de los datos compartidos, alineados con los estándares europeos.</p>
+      <div class="meta">
+        <span>UNE 0087:2025</span>
+        <span>Orden TDF/1207/2025</span>
+        <span>IDSA · Gaia-X</span>
+        <span>SEDIA · Plan de Impulso</span>
       </div>
     </div>
   </div>
