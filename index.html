@@ -6,7 +6,7 @@
 <title>XDATASHARE · Espacios de datos soberanos — Gradiant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --red:#EB2026;
@@ -31,7 +31,7 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.02;letter-spacing:-.02em;font-weight:700}
+  h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.02;letter-spacing:-.02em;font-weight:700}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
   .mono{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
@@ -99,7 +99,7 @@
     margin-top:62px;padding-top:30px;border-top:1px solid rgba(255,255,255,.12);
   }
   .std-strip .lbl{font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.2em;color:rgba(255,255,255,.4);text-transform:uppercase}
-  .std-strip .item{font-family:'Sora';font-weight:600;font-size:1.05rem;color:rgba(255,255,255,.85)}
+  .std-strip .item{font-family:'Archivo';font-weight:600;font-size:1.05rem;color:rgba(255,255,255,.85)}
   .std-strip .item span{color:var(--red)}
 
   /* reveal anim */
@@ -119,7 +119,7 @@
   .problem{background:var(--paper-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .problem .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
   .problem blockquote{
-    font-family:'Sora';font-weight:500;font-size:clamp(1.5rem,2.6vw,2.2rem);
+    font-family:'Archivo';font-weight:500;font-size:clamp(1.5rem,2.6vw,2.2rem);
     line-height:1.22;letter-spacing:-.02em;
   }
   .problem blockquote .hl{color:var(--red)}
@@ -147,7 +147,7 @@
   .step{position:relative;padding:0 14px}
   .step .num{
     width:48px;height:48px;border-radius:50%;background:var(--ink);border:1px solid rgba(235,32,38,.6);
-    display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:700;
     color:var(--red);position:relative;z-index:2;margin-bottom:22px;
   }
   .step h4{font-size:1.05rem;margin-bottom:8px}
@@ -164,7 +164,7 @@
   .arch-band .head h3{font-size:1.2rem}
   .arch-band .body{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
   .cell{background:var(--paper);padding:22px 24px}
-  .cell .ct{font-weight:600;font-family:'Sora';margin-bottom:5px;display:flex;align-items:center;gap:8px}
+  .cell .ct{font-weight:600;font-family:'Archivo';margin-bottom:5px;display:flex;align-items:center;gap:8px}
   .cell .ct::before{content:"";width:6px;height:6px;background:var(--red);border-radius:1px;flex:none}
   .cell p{color:var(--muted);font-size:.9rem}
   .arch-band.authority .head{background:var(--ink);border-color:var(--ink)}
@@ -181,7 +181,7 @@
   }
   .chip:hover{transform:translateY(-3px);border-color:var(--red)}
   .chip .k{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.1em;color:var(--red);text-transform:uppercase}
-  .chip b{font-weight:700;font-family:'Sora'}
+  .chip b{font-weight:700;font-family:'Archivo'}
 
   /* ---------- Deployments ---------- */
   .deploy{background:var(--ink);color:#fff;overflow:hidden}
@@ -201,6 +201,31 @@
   .dep .link.muted{color:rgba(255,255,255,.45);cursor:default}
   @media(max-width:880px){.deploy-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.deploy-grid{grid-template-columns:1fr}}
+
+  /* deployment subsection tags */
+  .deploy-subtag{display:flex;align-items:center;gap:16px;margin-top:54px;flex-wrap:wrap}
+  .deploy-subtag .badge{font-family:'Archivo';font-weight:700;font-size:1.15rem;color:#fff;white-space:nowrap}
+  .deploy-subtag .dst-line{flex:1;height:1px;background:rgba(255,255,255,.12);min-width:30px}
+  .deploy-subtag .dst-note{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);white-space:nowrap}
+  .sedia-intro{color:rgba(255,255,255,.62);font-size:1.02rem;max-width:74ch;margin-top:18px}
+  .sedia-intro strong{color:#fff;font-weight:600}
+
+  /* SEDIA connector cards */
+  .conn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.1);margin-top:30px;border:1px solid rgba(255,255,255,.1)}
+  .conn{background:var(--ink);padding:26px 22px;display:flex;flex-direction:column;min-height:180px;transition:background .3s}
+  .conn:hover{background:var(--ink-soft)}
+  a.conn:hover .conn-arr{transform:translate(3px,-3px)}
+  .conn-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .conn-mode{font-family:'JetBrains Mono';font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);border:1px solid rgba(235,32,38,.4);padding:4px 8px;border-radius:20px}
+    .conn-arr{color:var(--red);font-size:.9rem;transition:transform .25s var(--ease)}
+  .conn-mode.mode-sedia{color:#ffd166;border-color:rgba(255,209,102,.45)}
+  .conn-mode.mode-client{color:var(--red);border-color:rgba(235,32,38,.4)}
+  .conn h4{font-size:1.15rem;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
+  .conn p{color:rgba(255,255,255,.55);font-size:.85rem;flex:1}
+  .conn p strong{color:rgba(255,255,255,.85);font-weight:600}
+  @media(max-width:980px){.conn-grid{grid-template-columns:1fr 1fr 1fr}}
+  @media(max-width:620px){.conn-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:440px){.conn-grid{grid-template-columns:1fr}}
 
   /* ---------- Audience ---------- */
   .aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
@@ -230,6 +255,90 @@
   footer .contact a{color:var(--red);font-weight:600}
   footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:26px;font-size:.8rem;color:rgba(255,255,255,.4)}
   @media(max-width:680px){footer .contact{text-align:left}}
+
+  /* ---------- Animated exchange ---------- */
+  .exchange{margin-top:70px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.02);padding:30px 26px 22px}
+  .ex-phase{display:flex;align-items:center;gap:12px;justify-content:center;font-family:'Archivo';font-weight:600;font-size:1.05rem;color:#fff;margin-bottom:8px;min-height:28px;text-align:center}
+  .ex-phase #exLabel{transition:opacity .35s var(--ease)}
+  .ex-dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(235,32,38,.16);animation:exPulse 1.6s var(--ease) infinite;flex:none}
+  @keyframes exPulse{0%,100%{box-shadow:0 0 0 4px rgba(235,32,38,.18)}50%{box-shadow:0 0 0 9px rgba(235,32,38,.05)}}
+  .ex-svg{width:100%;height:auto;display:block;max-width:720px;margin:0 auto}
+
+  /* nodes */
+  .ex-svg .node rect{fill:var(--ink-soft);stroke:rgba(255,255,255,.16);stroke-width:1.5;transition:stroke .4s,fill .4s}
+  .ex-svg .node.active rect{stroke:var(--red);fill:#1d1416}
+  .ex-svg .node-authority.active rect{stroke:#ffd166}
+  .ex-svg text{font-family:'Archivo',sans-serif;text-anchor:middle;fill:#fff}
+  .ex-svg .n-role{font-size:11px;letter-spacing:.13em;fill:var(--red);font-weight:700}
+  .ex-svg .node-authority .n-role{fill:#ffd166}
+  .ex-svg .n-name{font-size:16px;font-weight:700}
+  .ex-svg .n-sub{font-size:11px;fill:rgba(255,255,255,.5);font-weight:500}
+
+  /* catalog */
+  .ex-svg .catalog rect{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.18);stroke-width:1.5;transition:stroke .4s}
+  .ex-svg.cat-on .catalog rect:first-child{stroke:var(--red)}
+  .ex-svg .cat-title{font-size:11px;letter-spacing:.14em;fill:rgba(255,255,255,.7);font-weight:700}
+  .ex-svg .slot rect{fill:rgba(255,255,255,.05);stroke:none;transition:fill .4s}
+  .ex-svg .slot text{font-family:'JetBrains Mono';font-size:9px;text-anchor:start;fill:rgba(255,255,255,.55)}
+  /* a freshly published asset lights up */
+  .ex-svg.publish .slot-1 rect{fill:rgba(235,32,38,.55);animation:slotIn .6s var(--ease)}
+  .ex-svg.publish .slot-1 text{fill:#fff}
+  @keyframes slotIn{0%{fill:rgba(235,32,38,0)}100%{fill:rgba(235,32,38,.55)}}
+  /* browsing scans the slots */
+  .ex-svg.browse .slot rect{animation:scan 1.8s var(--ease)}
+  .ex-svg.browse .slot-2 rect{animation-delay:.2s}
+  .ex-svg.browse .slot-3 rect{animation-delay:.4s}
+  @keyframes scan{0%,100%{fill:rgba(255,255,255,.05)}40%{fill:rgba(255,209,102,.4)}}
+
+  /* credential badges */
+  .ex-svg .vc-badge rect{fill:rgba(255,209,102,.12);stroke:rgba(255,209,102,.55);stroke-width:1.3}
+  .ex-svg .vc-badge text{font-family:'JetBrains Mono';font-size:10px;fill:#ffd166;font-weight:600}
+  .ex-svg .vc-badge{opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .ex-svg.creds .vc-badge{opacity:1;transform:none}
+
+  /* credential issuance dashed links */
+  .ex-svg .cred-link{opacity:0;stroke-dashoffset:0;transition:opacity .4s}
+  .ex-svg.issuing .cred-link{opacity:1;animation:wireMove 1s linear infinite}
+
+  /* connection wires */
+  .ex-svg .dash{opacity:0;transition:opacity .35s}
+  .ex-svg.w-pc .link-pc.dash{opacity:1;animation:wireMove 1s linear infinite}
+  .ex-svg.w-cc .link-cc.dash{opacity:1;animation:wireMove 1s linear infinite}
+  .ex-svg.w-direct .link-direct.dash{opacity:1;animation:wireMove 1s linear infinite}
+  @keyframes wireMove{to{stroke-dashoffset:-32}}
+
+  /* moving tokens (hidden by default) */
+  .ex-svg .tok{opacity:0}
+  .ex-svg .tok rect{fill:var(--red)}
+  .ex-svg .tok line{stroke:#fff;stroke-width:1.6;stroke-linecap:round}
+  .ex-svg .tok text{font-family:'JetBrains Mono';font-size:9px;fill:#fff;font-weight:600}
+  .ex-svg .tok-cred-l circle,.ex-svg .tok-cred-r circle{fill:#ffd166}
+  .ex-svg .tok-browse circle{stroke:#ffd166;stroke-width:2}
+  .ex-svg .tok-browse .lens{stroke:#ffd166;stroke-width:2}
+  .ex-svg .tok-nego rect{fill:#fff}.ex-svg .tok-nego text{fill:var(--ink)}
+
+  /* token trajectories */
+  .ex-svg.t-cred .tok-cred-l{animation:credL 1.4s var(--ease)}
+  .ex-svg.t-cred .tok-cred-r{animation:credR 1.4s var(--ease)}
+  @keyframes credL{0%{opacity:0;transform:translate(450px,70px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(175px,168px)}}
+  @keyframes credR{0%{opacity:0;transform:translate(450px,70px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(725px,168px)}}
+
+  .ex-svg.t-publish .tok-publish{animation:pub 1.3s var(--ease)}
+  @keyframes pub{0%{opacity:0;transform:translate(160px,220px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(420px,252px)}}
+
+  .ex-svg.t-browse .tok-browse{animation:brw 1.6s var(--ease)}
+  @keyframes brw{0%{opacity:0;transform:translate(740px,220px)}15%{opacity:1}50%{transform:translate(450px,280px)}85%{opacity:1;transform:translate(450px,300px)}100%{opacity:0;transform:translate(620px,250px)}}
+
+  .ex-svg.t-nego .tok-nego{animation:ngo 1.5s var(--ease) infinite}
+  @keyframes ngo{0%{opacity:0;transform:translate(210px,320px)}15%{opacity:1}50%{transform:translate(690px,320px)}55%{opacity:1}65%{transform:translate(690px,320px)}100%{opacity:0;transform:translate(210px,320px)}}
+
+  .ex-svg.t-data .tok-data{animation:dat 1.3s var(--ease) infinite}
+  @keyframes dat{0%{opacity:0;transform:translate(210px,320px)}12%{opacity:1}88%{opacity:1}100%{opacity:0;transform:translate(690px,320px)}}
+
+  .ex-track{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+  .ex-step{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.06em;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:30px;transition:.35s var(--ease)}
+  .ex-step.on{color:#fff;border-color:var(--red);background:rgba(235,32,38,.14)}
+  @media(max-width:560px){.ex-phase{font-size:.9rem}.exchange{padding:22px 14px 16px}.ex-step{font-size:.56rem;padding:5px 9px}}
 </style>
 </head>
 <body>
@@ -369,6 +478,79 @@
         <span class="tag">Push / Pull · EDR</span>
       </div>
     </div>
+
+    <!-- Animated exchange diagram -->
+    <div class="exchange rv" aria-label="Animación del intercambio de datos: emisión de credenciales, catálogo, negociación y transferencia">
+      <div class="ex-phase"><span class="ex-dot"></span><span id="exLabel">La Autoridad emite credenciales verificables a los participantes</span></div>
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" class="ex-svg">
+        <!-- ===== AUTHORITY (top) ===== -->
+        <g class="node node-authority">
+          <rect x="350" y="14" width="200" height="64" rx="10"/>
+          <text class="n-role" x="450" y="40">AUTORIDAD DEL ESPACIO</text>
+          <text class="n-name" x="450" y="63" style="font-size:15px">Issuer Service · ParIS</text>
+        </g>
+
+        <!-- credential issuance links (authority -> participants) -->
+        <path class="cred-link cl-left"  d="M360 70 C250 110 200 130 175 168" fill="none" stroke="rgba(255,209,102,.5)" stroke-width="1.6" stroke-dasharray="4 5"/>
+        <path class="cred-link cl-right" d="M540 70 C650 110 700 130 725 168" fill="none" stroke="rgba(255,209,102,.5)" stroke-width="1.6" stroke-dasharray="4 5"/>
+
+        <!-- ===== CATALOG (center) ===== -->
+        <g class="catalog">
+          <rect x="350" y="190" width="200" height="150" rx="12"/>
+          <text class="cat-title" x="450" y="216">CATÁLOGO · DCAT</text>
+          <line x1="368" y1="228" x2="532" y2="228" stroke="rgba(255,255,255,.12)"/>
+          <!-- asset slots -->
+          <g class="slot slot-1"><rect x="368" y="240" width="164" height="24" rx="5"/><text x="378" y="257">Dataset · clínico</text></g>
+          <g class="slot slot-2"><rect x="368" y="272" width="164" height="24" rx="5"/><text x="378" y="289">Dataset · agro</text></g>
+          <g class="slot slot-3"><rect x="368" y="304" width="164" height="24" rx="5"/><text x="378" y="321">Dataset · imagen</text></g>
+        </g>
+
+        <!-- ===== PROVIDER (left) ===== -->
+        <g class="node node-provider">
+          <rect x="40" y="168" width="170" height="104" rx="10"/>
+          <text class="n-role" x="125" y="196">PROVEEDOR</text>
+          <text class="n-name" x="125" y="222">Conector EDC</text>
+          <text class="n-sub" x="125" y="246">Activo · Política</text>
+        </g>
+        <g class="vc-badge vc-prov"><rect x="40" y="282" width="64" height="22" rx="11"/><text x="72" y="297">VC ✓</text></g>
+
+        <!-- ===== CONSUMER (right) ===== -->
+        <g class="node node-consumer">
+          <rect x="690" y="168" width="170" height="104" rx="10"/>
+          <text class="n-role" x="775" y="196">CONSUMIDOR</text>
+          <text class="n-name" x="775" y="222">Conector EDC</text>
+          <text class="n-sub" x="775" y="246">Acuerdo · EDR</text>
+        </g>
+        <g class="vc-badge vc-cons"><rect x="796" y="282" width="64" height="22" rx="11"/><text x="828" y="297">VC ✓</text></g>
+
+        <!-- provider <-> catalog wire -->
+        <line class="link-pc" x1="210" y1="232" x2="350" y2="262" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-pc dash" x1="210" y1="232" x2="350" y2="262" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- consumer <-> catalog wire -->
+        <line class="link-cc" x1="550" y1="262" x2="690" y2="232" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-cc dash" x1="550" y1="262" x2="690" y2="232" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- provider <-> consumer direct wire (negotiation/transfer) -->
+        <line class="link-direct" x1="210" y1="320" x2="690" y2="320" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-direct dash" x1="210" y1="320" x2="690" y2="320" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+
+        <!-- moving tokens -->
+        <g class="tok tok-cred-l"><circle r="7"/></g>
+        <g class="tok tok-cred-r"><circle r="7"/></g>
+        <g class="tok tok-publish"><rect x="-15" y="-11" width="30" height="22" rx="5"/><line x1="-7" y1="-3" x2="7" y2="-3"/><line x1="-7" y1="3" x2="3" y2="3"/></g>
+        <g class="tok tok-browse"><circle r="9" fill="none"/><line class="lens" x1="6" y1="6" x2="12" y2="12"/></g>
+        <g class="tok tok-nego"><rect x="-14" y="-10" width="28" height="20" rx="5"/><text x="0" y="4">DSP</text></g>
+        <g class="tok tok-data"><rect x="-16" y="-12" width="32" height="24" rx="5"/><line x1="-8" y1="-3" x2="8" y2="-3"/><line x1="-8" y1="3" x2="4" y2="3"/></g>
+      </svg>
+
+      <div class="ex-track">
+        <span class="ex-step" data-i="0">0 · Credenciales</span>
+        <span class="ex-step" data-i="1">1 · Publicación</span>
+        <span class="ex-step" data-i="2">2 · Descubrimiento</span>
+        <span class="ex-step" data-i="3">3 · Negociación</span>
+        <span class="ex-step" data-i="4">4 · Acuerdo</span>
+        <span class="ex-step" data-i="5">5 · Transferencia</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -433,6 +615,9 @@
       <h2 class="sec-head" style="color:#fff">Espacios de datos reales, ya operando con XDATASHARE</h2>
       <p class="sec-sub">Organizaciones públicas y privadas confían en XDATASHARE para construir sus espacios de datos soberanos, especialmente en el ámbito de la salud.</p>
     </div>
+
+    <!-- Complete data spaces -->
+    <div class="deploy-subtag rv"><span class="badge">Espacios de datos completos</span><span class="dst-line"></span><span class="dst-note">Plataformas íntegras desplegadas con XDATASHARE</span></div>
     <div class="deploy-grid rv">
       <div class="dep">
         <div class="org">CESGA · Centro de Supercomputación de Galicia</div>
@@ -468,6 +653,37 @@
         <h3 style="color:var(--red)">¿El siguiente?</h3>
         <p>Lleva tu sector a un espacio de datos soberano con el respaldo de Gradiant.</p>
         <a class="link" href="#demo">Hablemos <span>↗</span></a>
+      </div>
+    </div>
+
+    <!-- Connectors: clients -->
+    <div class="deploy-subtag rv" style="margin-top:64px"><span class="badge">Conectores de espacio de datos</span><span class="dst-line"></span><span class="dst-note">Participantes del OneHealth DataSpace</span></div>
+    <p class="sedia-intro rv">Estas organizaciones emplean XDATASHARE como <strong>conector</strong> para incorporarse al OneHealth DataSpace, sin necesidad de desplegar un espacio de datos completo. Unas lo han <strong>contratado directamente</strong> y otras lo despliegan dentro de un proyecto de la convocatoria de espacios de datos de la <strong>SEDIA</strong> (Secretaría de Estado de Digitalización e Inteligencia Artificial).</p>
+    <div class="conn-grid rv">
+      <a class="conn" href="https://www2.cruzroja.es/" target="_blank" rel="noopener">
+        <div class="conn-top"><span class="conn-mode mode-client">Cliente · Contratación directa</span><span class="conn-arr">↗</span></div>
+        <h4>Cruz Roja Española</h4>
+        <p>Conector contratado e <strong>integrado con sus sistemas de datos internos</strong>, con <strong>políticas personalizadas</strong> a medida de su caso de uso en el OneHealth DataSpace.</p>
+      </a>
+      <a class="conn" href="https://agrolinera.com/" target="_blank" rel="noopener">
+        <div class="conn-top"><span class="conn-mode mode-client">Cliente · Contratación directa</span><span class="conn-arr">↗</span></div>
+        <h4>Agrolinera</h4>
+        <p>Conector contratado e <strong>integrado con sus sistemas de datos internos</strong>, con <strong>políticas personalizadas</strong> a medida de su caso de uso en el OneHealth DataSpace.</p>
+      </a>
+      <a class="conn" href="https://www.dihdatalife.com/" target="_blank" rel="noopener">
+        <div class="conn-top"><span class="conn-mode mode-client">Cliente · Contratación directa</span><span class="conn-arr">↗</span></div>
+        <h4>DIH DATAlife</h4>
+        <p>Conector contratado e <strong>integrado con sus sistemas de datos internos</strong>, con <strong>políticas personalizadas</strong> a medida de su caso de uso en el OneHealth DataSpace.</p>
+      </a>
+      <div class="conn">
+        <div class="conn-top"><span class="conn-mode mode-sedia">Proyecto SEDIA</span></div>
+        <h4>CELIASPACE</h4>
+        <p>Universidade de Vigo. Conector desplegado dentro de un proyecto de la convocatoria SEDIA, participante en el OneHealth DataSpace.</p>
+      </div>
+      <div class="conn">
+        <div class="conn-top"><span class="conn-mode mode-sedia">Proyecto SEDIA</span></div>
+        <h4>DATIACARE</h4>
+        <p>Empresa I4LIFE. Conector desplegado dentro de un proyecto de la convocatoria SEDIA, participante en el OneHealth DataSpace.</p>
       </div>
     </div>
   </div>
@@ -540,6 +756,57 @@
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:.14});
   document.querySelectorAll('section .rv').forEach(el=>io.observe(el));
+
+  // ---- Data-exchange animation ----
+  (function(){
+    const svg=document.querySelector('.ex-svg');
+    if(!svg)return;
+    const label=document.getElementById('exLabel');
+    const steps=[...document.querySelectorAll('.ex-step')];
+    const authority=document.querySelector('.node-authority');
+    const provider=document.querySelector('.node-provider');
+    const consumer=document.querySelector('.node-consumer');
+
+    // each phase: label, which nodes are active, and which CSS state classes apply
+    const phases=[
+      {label:'La Autoridad emite credenciales verificables (VC) a los participantes',
+       active:['authority','provider','consumer'], cls:['issuing','t-cred']},
+      {label:'El proveedor publica un activo de datos en el catálogo (DCAT)',
+       active:['provider'], cls:['creds','cat-on','w-pc','publish','t-publish']},
+      {label:'El consumidor explora el catálogo y localiza la oferta',
+       active:['consumer'], cls:['creds','cat-on','w-cc','browse','t-browse']},
+      {label:'Negociación del contrato vía DSP, validando las credenciales',
+       active:['provider','consumer'], cls:['creds','w-direct','t-nego']},
+      {label:'Acuerdo de contrato firmado entre ambas partes',
+       active:['provider','consumer'], cls:['creds','w-direct']},
+      {label:'Transferencia de datos (Push / Pull · EDR), supervisada en tiempo real',
+       active:['provider','consumer'], cls:['creds','w-direct','t-data']}
+    ];
+    const allCls=['issuing','t-cred','creds','cat-on','w-pc','publish','t-publish',
+                  'w-cc','browse','t-browse','w-direct','t-nego','t-data'];
+    let i=0, running=false;
+
+    function render(p){
+      label.style.opacity=0;
+      setTimeout(()=>{label.textContent=p.label;label.style.opacity=1;},180);
+      authority.classList.toggle('active',p.active.includes('authority'));
+      provider.classList.toggle('active',p.active.includes('provider'));
+      consumer.classList.toggle('active',p.active.includes('consumer'));
+      // reset all state classes, force reflow so animations restart, then apply
+      allCls.forEach(c=>svg.classList.remove(c));
+      void svg.offsetWidth;
+      p.cls.forEach(c=>svg.classList.add(c));
+      steps.forEach((s,idx)=>s.classList.toggle('on',idx===i));
+    }
+    function tick(){render(phases[i]);i=(i+1)%phases.length;}
+
+    const startIO=new IntersectionObserver((es)=>{
+      es.forEach(e=>{
+        if(e.isIntersecting&&!running){running=true;tick();setInterval(tick,2900);}
+      });
+    },{threshold:.3});
+    startIO.observe(svg);
+  })();
 </script>
 </body>
 </html>
