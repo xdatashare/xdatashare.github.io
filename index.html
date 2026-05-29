@@ -320,20 +320,37 @@
   /* token trajectories */
   .ex-svg.t-cred .tok-cred-l{animation:credL 1.4s var(--ease)}
   .ex-svg.t-cred .tok-cred-r{animation:credR 1.4s var(--ease)}
-  @keyframes credL{0%{opacity:0;transform:translate(450px,70px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(175px,168px)}}
-  @keyframes credR{0%{opacity:0;transform:translate(450px,70px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(725px,168px)}}
+  @keyframes credL{0%{opacity:0;transform:translate(420px,78px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(150px,168px)}}
+  @keyframes credR{0%{opacity:0;transform:translate(480px,78px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(750px,168px)}}
 
+  /* publish: provider right edge -> catalog (along y=230) */
   .ex-svg.t-publish .tok-publish{animation:pub 1.3s var(--ease)}
-  @keyframes pub{0%{opacity:0;transform:translate(160px,220px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(420px,252px)}}
+  @keyframes pub{0%{opacity:0;transform:translate(210px,230px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(440px,252px)}}
 
-  .ex-svg.t-browse .tok-browse{animation:brw 1.6s var(--ease)}
-  @keyframes brw{0%{opacity:0;transform:translate(740px,220px)}15%{opacity:1}50%{transform:translate(450px,280px)}85%{opacity:1;transform:translate(450px,300px)}100%{opacity:0;transform:translate(620px,250px)}}
+  /* browse: consumer left edge -> into catalog (along y=230 then down) */
+  .ex-svg.t-browse .tok-browse{animation:brw 1.7s var(--ease)}
+  @keyframes brw{0%{opacity:0;transform:translate(690px,230px)}15%{opacity:1}55%{transform:translate(470px,250px)}80%{opacity:1;transform:translate(470px,282px)}100%{opacity:0;transform:translate(470px,300px)}}
 
-  .ex-svg.t-nego .tok-nego{animation:ngo 1.5s var(--ease) infinite}
-  @keyframes ngo{0%{opacity:0;transform:translate(210px,320px)}15%{opacity:1}50%{transform:translate(690px,320px)}55%{opacity:1}65%{transform:translate(690px,320px)}100%{opacity:0;transform:translate(210px,320px)}}
+  /* negotiation: along the upper route (y=140) back and forth */
+  .ex-svg.t-nego .tok-nego{animation:ngo 1.6s var(--ease) infinite}
+  @keyframes ngo{
+    0%{opacity:0;transform:translate(125px,154px)}
+    8%{opacity:1;transform:translate(125px,140px)}
+    42%{transform:translate(775px,140px)}
+    50%{opacity:1;transform:translate(775px,140px)}
+    84%{transform:translate(125px,140px)}
+    92%{opacity:1;transform:translate(125px,154px)}
+    100%{opacity:0;transform:translate(125px,154px)}
+  }
 
-  .ex-svg.t-data .tok-data{animation:dat 1.3s var(--ease) infinite}
-  @keyframes dat{0%{opacity:0;transform:translate(210px,320px)}12%{opacity:1}88%{opacity:1}100%{opacity:0;transform:translate(690px,320px)}}
+  /* data transfer: along the upper route (y=140), one direction */
+  .ex-svg.t-data .tok-data{animation:dat 1.4s var(--ease) infinite}
+  @keyframes dat{
+    0%{opacity:0;transform:translate(125px,154px)}
+    10%{opacity:1;transform:translate(125px,140px)}
+    88%{opacity:1;transform:translate(775px,140px)}
+    100%{opacity:0;transform:translate(775px,154px)}
+  }
 
   .ex-track{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
   .ex-step{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.06em;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:30px;transition:.35s var(--ease)}
@@ -523,22 +540,22 @@
         </g>
         <g class="vc-badge vc-cons"><rect x="796" y="282" width="64" height="22" rx="11"/><text x="828" y="297">VC ✓</text></g>
 
-        <!-- provider <-> catalog wire -->
-        <line class="link-pc" x1="210" y1="232" x2="350" y2="262" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
-        <line class="link-pc dash" x1="210" y1="232" x2="350" y2="262" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
-        <!-- consumer <-> catalog wire -->
-        <line class="link-cc" x1="550" y1="262" x2="690" y2="232" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
-        <line class="link-cc dash" x1="550" y1="262" x2="690" y2="232" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
-        <!-- provider <-> consumer direct wire (negotiation/transfer) -->
-        <line class="link-direct" x1="210" y1="320" x2="690" y2="320" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
-        <line class="link-direct dash" x1="210" y1="320" x2="690" y2="320" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- provider <-> catalog wire (horizontal, edge to edge) -->
+        <line class="link-pc" x1="210" y1="230" x2="350" y2="230" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-pc dash" x1="210" y1="230" x2="350" y2="230" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- consumer <-> catalog wire (horizontal, edge to edge) -->
+        <line class="link-cc" x1="550" y1="230" x2="690" y2="230" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-cc dash" x1="550" y1="230" x2="690" y2="230" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- provider <-> consumer direct wire, routed ABOVE the catalog -->
+        <path class="link-direct" d="M125 168 L125 140 L775 140 L775 168" fill="none" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <path class="link-direct dash" d="M125 168 L125 140 L775 140 L775 168" fill="none" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
 
         <!-- moving tokens -->
         <g class="tok tok-cred-l"><circle r="7"/></g>
         <g class="tok tok-cred-r"><circle r="7"/></g>
         <g class="tok tok-publish"><rect x="-15" y="-11" width="30" height="22" rx="5"/><line x1="-7" y1="-3" x2="7" y2="-3"/><line x1="-7" y1="3" x2="3" y2="3"/></g>
         <g class="tok tok-browse"><circle r="9" fill="none"/><line class="lens" x1="6" y1="6" x2="12" y2="12"/></g>
-        <g class="tok tok-nego"><rect x="-14" y="-10" width="28" height="20" rx="5"/><text x="0" y="4">DSP</text></g>
+        <g class="tok tok-nego"><rect x="-15" y="-11" width="30" height="22" rx="5"/><text x="0" y="4">DSP</text></g>
         <g class="tok tok-data"><rect x="-16" y="-12" width="32" height="24" rx="5"/><line x1="-8" y1="-3" x2="8" y2="-3"/><line x1="-8" y1="3" x2="4" y2="3"/></g>
       </svg>
 
