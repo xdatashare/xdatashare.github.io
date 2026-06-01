@@ -4,6 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XDATASHARE · Espacios de datos soberanos — Gradiant</title>
+<meta name="description" content="XDATASHARE es la plataforma de Gradiant para crear y operar espacios de datos federados y soberanos, conformes con IDSA y Gaia-X y basados en Eclipse EDC. Comparte datos sin ceder el control.">
+<meta name="keywords" content="XDATASHARE, espacios de datos, Gradiant, Eclipse EDC, Data Space Protocol, IDSA, Gaia-X, soberanía del dato, conector de espacio de datos, dataspace, OneHealth DataSpace">
+<meta name="author" content="Gradiant">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.gradiant.org/xdatashare/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gradiant">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="XDATASHARE · Espacios de datos soberanos — Gradiant">
+<meta property="og:description" content="Crea y opera espacios de datos federados y soberanos con XDATASHARE: conformes con IDSA y Gaia-X, basados en Eclipse EDC. Comparte datos sin ceder el control.">
+<meta property="og:url" content="https://www.gradiant.org/xdatashare/">
+<meta property="og:image" content="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="XDATASHARE · Espacios de datos soberanos — Gradiant">
+<meta name="twitter:description" content="Crea y opera espacios de datos federados y soberanos con XDATASHARE: conformes con IDSA y Gaia-X, basados en Eclipse EDC.">
+<meta name="twitter:image" content="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg">
+
+<!-- Favicon (whale-tail mark) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23EB2026' d='M50 78C36 60 20 52 5 50c23-2 39-10 45-28 6 18 22 26 45 28-15 2-31 10-45 28z'/%3E%3C/svg%3E">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.gradiant.org/#organization",
+      "name": "Gradiant",
+      "legalName": "Centro Tecnolóxico de Telecomunicacións de Galicia",
+      "url": "https://www.gradiant.org",
+      "logo": "https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Carretera do Vilar, 56-58",
+        "postalCode": "36214",
+        "addressLocality": "Vigo",
+        "addressRegion": "Pontevedra",
+        "addressCountry": "ES"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "dataspaces@gradiant.org",
+        "telephone": "+34986120430"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "XDATASHARE",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Kubernetes / Cloud-native",
+      "url": "https://www.gradiant.org/xdatashare/",
+      "description": "Plataforma para crear y operar espacios de datos federados y soberanos, conforme con IDSA y Gaia-X y basada en Eclipse Dataspace Components (EDC). Permite publicar, negociar y transferir activos de datos con identidad descentralizada y trazabilidad de extremo a extremo.",
+      "publisher": { "@id": "https://www.gradiant.org/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "price": "0",
+        "description": "Solicitar demostración personalizada"
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -35,6 +105,7 @@
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
   .mono{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
   /* ---------- Nav (dark) ---------- */
   nav{
@@ -387,7 +458,7 @@
 
 <nav id="nav">
   <a href="#top" class="brand">
-    <img src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant">
+    <img src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant — XDATASHARE, espacios de datos soberanos">
     <span class="sep"></span>
     <span class="prod">XDATASHARE</span>
   </a>
@@ -404,7 +475,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow rv" style="--d:0s"><span class="dot"></span><span class="mono">Espacios de datos soberanos · IDSA · Gaia-X</span></div>
-    <h1 class="rv" style="--d:.08s">Comparte tus datos <em>sin ceder</em> el control.</h1>
+    <h1 class="rv" style="--d:.08s">Comparte tus datos <em>sin ceder</em> el control.<span class="sr-only"> XDATASHARE de Gradiant: plataforma de espacios de datos soberanos.</span></h1>
     <p class="lead rv" style="--d:.16s">XDATASHARE es la plataforma de Gradiant para crear y operar espacios de datos federados y soberanos. Publica, negocia y transfiere activos de datos bajo tus propias reglas, con identidad descentralizada y trazabilidad de extremo a extremo — sobre estándares europeos abiertos.</p>
     <div class="cta-row rv" style="--d:.24s">
       <a href="#demo" class="btn">Solicitar una demo <span class="arr">→</span></a>
