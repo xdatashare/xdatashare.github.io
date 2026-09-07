@@ -1,0 +1,61 @@
+:root{
+  --red:#EB2026;
+  --red-deep:#C2151A;
+  --ink:#0B0C0E;
+  --ink-soft:#14161A;
+  --paper:#FFFFFF;
+  --paper-warm:#F6F5F3;
+  --line:#E6E4E0;
+  --muted:#6A6A6E;
+  --muted-light:#9A9A9F;
+  --maxw:1180px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.02;letter-spacing:-.02em;font-weight:700}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--red);color:#fff;font-weight:600;font-size:.92rem;
+  padding:11px 20px;border-radius:2px;border:none;cursor:pointer;
+  transition:transform .25s var(--ease),background .25s;white-space:nowrap;
+}
+.btn:hover{background:var(--red-deep);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.55)}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn.light{background:#fff;color:var(--red)}
+.btn.light:hover{background:var(--ink);color:#fff}
+
+/* reveal anim */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.hero .rv{transition-delay:var(--d,0s)}
+.rv-delay-1{--d:.08s}
+.rv-delay-2{--d:.16s}
+.rv-delay-3{--d:.24s}
+.rv-delay-4{--d:.32s}
+
+/* ---------- Section base ---------- */
+section{position:relative}
+.pad{padding:110px 0}
+.sec-tag{display:inline-flex;align-items:center;gap:10px;color:var(--red);margin-bottom:20px}
+.sec-tag .bar{width:26px;height:2px;background:var(--red)}
+.sec-head{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;max-width:20ch;letter-spacing:-.025em}
+.section-title-light{color:#fff}
+.sec-sub{color:var(--muted);font-size:1.08rem;max-width:62ch;margin-top:18px}

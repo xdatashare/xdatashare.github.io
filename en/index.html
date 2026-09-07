@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-alternate-language="es" data-alternate-url="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XDATASHARE · Sovereign data spaces — Gradiant</title>
+<meta name="description" content="Born from Gradiant's research into data spaces, XDATASHARE is the platform for creating and operating federated, sovereign data spaces compliant with IDSA and Gaia-X and built on Eclipse EDC. Share data without giving up control.">
+<meta name="keywords" content="XDATASHARE, data spaces, Gradiant, Eclipse EDC, Data Space Protocol, IDSA, Gaia-X, data sovereignty, data space connector, dataspace, OneHealth DataSpace">
+<meta name="author" content="Gradiant">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://xdatashare.com/en/">
+<link rel="alternate" hreflang="es" href="https://xdatashare.com/">
+<link rel="alternate" hreflang="en" href="https://xdatashare.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://xdatashare.com/en/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gradiant">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:title" content="XDATASHARE · Sovereign data spaces — Gradiant">
+<meta property="og:description" content="Create and operate federated, sovereign data spaces with XDATASHARE: compliant with IDSA and Gaia-X and built on Eclipse EDC. Share data without giving up control.">
+<meta property="og:url" content="https://xdatashare.com/en/">
+<meta property="og:image" content="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="XDATASHARE · Sovereign data spaces — Gradiant">
+<meta name="twitter:description" content="Create and operate federated, sovereign data spaces with XDATASHARE: compliant with IDSA and Gaia-X and built on Eclipse EDC.">
+<meta name="twitter:image" content="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg">
+
+<!-- Favicon (whale-tail mark) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23EB2026' d='M50 78C36 60 20 52 5 50c23-2 39-10 45-28 6 18 22 26 45 28-15 2-31 10-45 28z'/%3E%3C/svg%3E">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.gradiant.org/#organization",
+      "name": "Gradiant",
+      "legalName": "Centro Tecnolóxico de Telecomunicacións de Galicia",
+      "url": "https://www.gradiant.org",
+      "logo": "https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Carretera do Vilar, 56-58",
+        "postalCode": "36214",
+        "addressLocality": "Vigo",
+        "addressRegion": "Pontevedra",
+        "addressCountry": "ES"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "dataspaces@gradiant.org",
+        "telephone": "+34986120430"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "XDATASHARE",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Kubernetes / Cloud-native",
+      "url": "https://xdatashare.com/en/",
+      "inLanguage": "en",
+      "description": "A platform for creating and operating federated, sovereign data spaces compliant with IDSA and Gaia-X and built on Eclipse Dataspace Components (EDC). It enables data assets to be published, negotiated and transferred with decentralised identity and end-to-end traceability.",
+      "publisher": { "@id": "https://www.gradiant.org/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "price": "0",
+        "description": "Request a personalised demonstration"
+      }
+    }
+  ]
+}
+</script>
+<script src="../assets/js/language.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/exchange.css">
+</head>
+<body>
+
+<nav id="nav" aria-label="Main navigation">
+  <a href="#top" class="brand">
+    <img src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant — XDATASHARE, sovereign data spaces">
+    <span class="sep"></span>
+    <span class="prod">XDATASHARE</span>
+  </a>
+  <div class="navlinks">
+    <a href="#que-es">What it is</a>
+    <a href="#beneficios">Benefits</a>
+    <a href="#como">How it works</a>
+    <a href="#produccion">In production</a>
+    <a href="#demo" class="btn">Request a demo <span class="arr">→</span></a>
+    <div class="language-switcher" aria-label="Language selector">
+      <a href="../?lang=es" lang="es" hreflang="es" data-language-link>ES</a>
+      <span aria-hidden="true">/</span>
+      <a href="./?lang=en" lang="en" hreflang="en" aria-current="page" data-language-link>EN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-glass" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="dot"></span><span class="mono">Sovereign data spaces · IDSA · Gaia-X</span></div>
+    <h1 class="rv rv-delay-1">Share your data <em>without giving up</em> control.<span class="sr-only"> XDATASHARE by Gradiant: a sovereign data space platform.</span></h1>
+    <p class="lead rv rv-delay-2">Born from Gradiant's research into data spaces, XDATASHARE is the platform for creating and operating federated, sovereign data spaces. Publish, negotiate and transfer data assets under your own rules, with decentralised identity and end-to-end traceability — all built on open European standards.</p>
+    <div class="cta-row rv rv-delay-3">
+      <a href="#demo" class="btn">Request a demo <span class="arr">→</span></a>
+      <a href="#que-es" class="btn ghost">See how it works</a>
+    </div>
+    <div class="std-strip rv rv-delay-4">
+      <span class="lbl">Built on</span>
+      <span class="item">Eclipse <span>EDC</span></span>
+      <span class="item">Data Space <span>Protocol</span></span>
+      <span class="item">W3C <span>Verifiable Credentials</span></span>
+      <span class="item">Cloud <span>Native</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="problem pad" id="que-es">
+  <div class="wrap">
+    <div class="grid">
+      <div class="left rv">
+        <div class="sec-tag"><span class="bar"></span><span class="mono">The shared-data challenge</span></div>
+        <blockquote>Sharing data between organisations often means <span class="hl">giving up control</span>. XDATASHARE resolves that dilemma.</blockquote>
+      </div>
+      <div class="right rv">
+        <p>Data value chains are held back by a lack of trust: who can access what, under which conditions and with which safeguards? Centralised solutions create dependency, silos and regulatory risk.</p>
+        <p><strong>XDATASHARE</strong> provides the essential software components for creating a data space compliant with the specifications of the <strong>IDSA</strong> (International Data Spaces Association) and <strong>Gaia-X</strong>. It is based on the <strong>Eclipse Dataspace Components (EDC)</strong> connector, the open-source reference implementation.</p>
+        <p>The result is a data exchange in which every participant retains <strong>full sovereignty</strong> over its assets, defines its own policies and maintains trust without an intermediary controlling the data.</p>
+        <p>XDATASHARE is the result of <strong>Gradiant's research</strong> into data spaces: years of applied R&amp;D transformed into production-ready technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="pad" id="beneficios">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Why XDATASHARE</span></div>
+      <h2 class="sec-head">Sovereignty, standards and trust in one platform</h2>
+      <p class="sec-sub">Everything you need to participate in Europe's data economy, without reinventing the infrastructure or becoming tied to a single provider.</p>
+    </div>
+    <div class="ben-grid rv">
+      <div class="ben">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/></svg></div>
+        <h3>Data sovereignty</h3>
+        <p>Your data never leaves your control. You decide who can access each asset and under which policy, evaluated during every negotiation and throughout the transfer.</p>
+      </div>
+      <div class="ben">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <h3>Standards-based interoperability</h3>
+        <p>Communication through DSP, DCP and DCAT. Compatible with any participant in the IDSA and Gaia-X ecosystem, without bespoke integrations.</p>
+      </div>
+      <div class="ben">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/></svg></div>
+        <h3>Decentralised trust</h3>
+        <p>Decentralised identities (DIDs using the did:web method) and W3C Verifiable Credentials 2.0. Identity and compliance are proven, not assumed.</p>
+      </div>
+      <div class="ben">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h3>No technical barriers</h3>
+        <p>The Participant Portal provides a graphical interface for browsing the catalog, negotiating contracts and transferring data. No technical expertise is required to operate the data space.</p>
+      </div>
+      <div class="ben">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 19a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 16 9a4.5 4.5 0 0 1 1 8.9"/><path d="M12 12v6M9 15l3 3 3-3"/></svg></div>
+        <h3>Cloud-native and technology-agnostic</h3>
+        <p>Deployed on Kubernetes and independent of the underlying technology. It runs on premises or in the cloud and integrates with your storage systems.</p>
+      </div>
+      <div class="ben">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect x="4" y="11" width="16" height="10" rx="2"/></svg></div>
+        <h3>Open, with no lock-in</h3>
+        <p>Built on the EDC framework (Apache 2.0 licence), the reference implementation maintained by the community. No dependency on a proprietary provider.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow pad" id="como">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">From catalog to transfer</span></div>
+      <h2 class="sec-head section-title-light">How a data exchange works</h2>
+      <p class="sec-sub">Every data asset follows a policy-governed flow compliant with the Data Space Protocol. Push and Pull are two ways of delivering the same agreement.</p>
+    </div>
+    <div class="steps rv">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Publishing</h4>
+        <p>The provider defines an asset and its access and contract policies, then publishes it in the catalog (DCAT).</p>
+        <span class="tag">DCAT · Asset</span>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Discovery</h4>
+        <p>The consumer browses the catalog and finds the offers whose policies it satisfies.</p>
+        <span class="tag">Catalog Offer</span>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Negotiation</h4>
+        <p>The contract is negotiated through DSP. The policy engine evaluates the verifiable credentials.</p>
+        <span class="tag">Contract Negotiation</span>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h4>Agreement</h4>
+        <p>Both parties sign a Contract Agreement that enables and governs the transfer.</p>
+        <span class="tag">Agreement</span>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <h4>Transfer</h4>
+        <p>The Data Plane delivers the asset over HTTP in Push or Pull mode, with real-time monitoring.</p>
+        <span class="tag">Push / Pull · EDR</span>
+      </div>
+    </div>
+
+    <!-- Animated exchange diagram -->
+    <div class="exchange rv" aria-label="Data exchange animation: credential issuance, catalog, negotiation and transfer">
+      <div class="ex-phase"><span class="ex-dot"></span><span id="exLabel">The Authority issues verifiable credentials (VCs) to participants</span></div>
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" class="ex-svg">
+        <!-- ===== AUTHORITY (top) ===== -->
+        <g class="node node-authority">
+          <rect x="350" y="14" width="200" height="64" rx="10"/>
+          <text class="n-role" x="450" y="40">DATA SPACE AUTHORITY</text>
+          <text class="n-name n-name-compact" x="450" y="63">Issuer Service · ParIS</text>
+        </g>
+
+        <!-- credential issuance links (authority -> participants) -->
+        <path class="cred-link cl-left"  d="M360 70 C250 110 200 130 175 168" fill="none" stroke="rgba(255,209,102,.5)" stroke-width="1.6" stroke-dasharray="4 5"/>
+        <path class="cred-link cl-right" d="M540 70 C650 110 700 130 725 168" fill="none" stroke="rgba(255,209,102,.5)" stroke-width="1.6" stroke-dasharray="4 5"/>
+
+        <!-- ===== CATALOG (center) ===== -->
+        <g class="catalog">
+          <rect x="350" y="190" width="200" height="150" rx="12"/>
+          <text class="cat-title" x="450" y="216">CATALOG · DCAT</text>
+          <line x1="368" y1="228" x2="532" y2="228" stroke="rgba(255,255,255,.12)"/>
+          <!-- asset slots -->
+          <g class="slot slot-1"><rect x="368" y="240" width="164" height="24" rx="5"/><text x="378" y="257">Dataset · clinical</text></g>
+          <g class="slot slot-2"><rect x="368" y="272" width="164" height="24" rx="5"/><text x="378" y="289">Dataset · agriculture</text></g>
+          <g class="slot slot-3"><rect x="368" y="304" width="164" height="24" rx="5"/><text x="378" y="321">Dataset · imaging</text></g>
+        </g>
+
+        <!-- ===== PROVIDER (left) ===== -->
+        <g class="node node-provider">
+          <rect x="40" y="168" width="170" height="104" rx="10"/>
+          <text class="n-role" x="125" y="196">PROVIDER</text>
+          <text class="n-name" x="125" y="222">EDC Connector</text>
+          <text class="n-sub" x="125" y="246">Asset · Policy</text>
+        </g>
+        <g class="vc-badge vc-prov"><rect x="40" y="282" width="64" height="22" rx="11"/><text x="72" y="297">VC ✓</text></g>
+
+        <!-- ===== CONSUMER (right) ===== -->
+        <g class="node node-consumer">
+          <rect x="690" y="168" width="170" height="104" rx="10"/>
+          <text class="n-role" x="775" y="196">CONSUMER</text>
+          <text class="n-name" x="775" y="222">EDC Connector</text>
+          <text class="n-sub" x="775" y="246">Agreement · EDR</text>
+        </g>
+        <g class="vc-badge vc-cons"><rect x="796" y="282" width="64" height="22" rx="11"/><text x="828" y="297">VC ✓</text></g>
+
+        <!-- provider <-> catalog wire (horizontal, edge to edge) -->
+        <line class="link-pc" x1="210" y1="230" x2="350" y2="230" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-pc dash" x1="210" y1="230" x2="350" y2="230" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- consumer <-> catalog wire (horizontal, edge to edge) -->
+        <line class="link-cc" x1="550" y1="230" x2="690" y2="230" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <line class="link-cc dash" x1="550" y1="230" x2="690" y2="230" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- provider <-> consumer direct wire, routed ABOVE the catalog -->
+        <path class="link-direct" d="M125 168 L125 140 L775 140 L775 168" fill="none" stroke="rgba(235,32,38,.25)" stroke-width="2"/>
+        <path class="link-direct dash" d="M125 168 L125 140 L775 140 L775 168" fill="none" stroke="rgba(235,32,38,.9)" stroke-width="2" stroke-dasharray="6 10"/>
+
+        <!-- moving tokens -->
+        <g class="tok tok-cred-l"><circle r="7"/></g>
+        <g class="tok tok-cred-r"><circle r="7"/></g>
+        <g class="tok tok-publish"><rect x="-15" y="-11" width="30" height="22" rx="5"/><line x1="-7" y1="-3" x2="7" y2="-3"/><line x1="-7" y1="3" x2="3" y2="3"/></g>
+        <g class="tok tok-browse"><circle r="9" fill="none"/><line class="lens" x1="6" y1="6" x2="12" y2="12"/></g>
+        <g class="tok tok-nego"><rect x="-15" y="-11" width="30" height="22" rx="5"/><text x="0" y="4">DSP</text></g>
+        <g class="tok tok-data"><rect x="-16" y="-12" width="32" height="24" rx="5"/><line x1="-8" y1="-3" x2="8" y2="-3"/><line x1="-8" y1="3" x2="4" y2="3"/></g>
+      </svg>
+
+      <div class="ex-track">
+        <span class="ex-step" data-i="0" data-phase-label="The Authority issues verifiable credentials (VCs) to participants">0 · Credentials</span>
+        <span class="ex-step" data-i="1" data-phase-label="The provider publishes a data asset in the catalog (DCAT)">1 · Publishing</span>
+        <span class="ex-step" data-i="2" data-phase-label="The consumer browses the catalog and locates the offer">2 · Discovery</span>
+        <span class="ex-step" data-i="3" data-phase-label="The contract is negotiated through DSP, validating credentials">3 · Negotiation</span>
+        <span class="ex-step" data-i="4" data-phase-label="A Contract Agreement is signed by both parties">4 · Agreement</span>
+        <span class="ex-step" data-i="5" data-phase-label="Data is transferred (Push / Pull · EDR) and monitored in real time">5 · Transfer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="pad">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Who it is for</span></div>
+      <h2 class="sec-head">Designed for organisations that orchestrate trusted data</h2>
+    </div>
+    <div class="aud-grid rv">
+      <div class="aud"><div class="n">01</div><h4>Industry consortia</h4><p>Healthcare, industry, mobility and energy ecosystems that need to share data securely across organisations.</p></div>
+      <div class="aud"><div class="n">02</div><h4>Public administrations</h4><p>European common data space initiatives aligned with Gaia-X and data regulation.</p></div>
+      <div class="aud"><div class="n">03</div><h4>Platform providers</h4><p>Operators seeking to offer a turnkey data space to their customer ecosystem.</p></div>
+      <div class="aud"><div class="n">04</div><h4>Data innovation teams</h4><p>Teams that monetise or exchange data assets while maintaining regulatory compliance.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="arch pad" id="arquitectura">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Solution architecture</span></div>
+      <h2 class="sec-head">One connector per participant, one governance authority</h2>
+      <p class="sec-sub">Each organisation deploys its own connector and portal. The Data Space Authority governs identities, participants and shared trust.</p>
+    </div>
+    <div class="layers rv">
+      <!-- participant -->
+      <div class="arch-band">
+        <div class="head"><span class="pill">Participant</span><h3>EDC Connector + Web Portal</h3></div>
+        <div class="body">
+          <div class="cell"><div class="ct">Control Plane</div><p>Resource management, DSP contract negotiation with its own policy engine, and catalog and transfer control. The API is protected by an API key.</p></div>
+          <div class="cell"><div class="ct">Data Plane</div><p>Secure HTTP transfer in Push mode, a proxy for Pull downloads, and monitoring of active transfers against the agreed policies.</p></div>
+          <div class="cell"><div class="ct">Identity Hub</div><p>Management of verifiable credentials (W3C VC 2.0), identification through DID did:web, and credential exchange using the Eclipse DCP 1.0 standard.</p></div>
+        </div>
+      </div>
+      <!-- authority -->
+      <div class="arch-band authority">
+        <div class="head"><span class="pill">Authority</span><h3>Data Space Governance</h3></div>
+        <div class="body">
+          <div class="cell"><div class="ct">Authority Portal</div><p>Participant onboarding, updates and removal; data space administration and monitoring; and use-case management.</p></div>
+          <div class="cell"><div class="ct">Issuer Service + ParIS</div><p>Issuance of verifiable credentials and participant registration through the Participant Information Service, enabling discovery between connectors.</p></div>
+          <div class="cell"><div class="ct">Logging + Vocabulary Hub</div><p>Activity traceability and publication of semantic elements — taxonomies, ontologies and vocabularies — in accordance with IDSA RAM 4.0.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section class="standards pad">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Standards and technology</span></div>
+      <h2 class="sec-head">Compliance by design</h2>
+      <p class="sec-sub">XDATASHARE is not a black box: every layer uses open, verifiable protocols aligned with the European data strategy.</p>
+    </div>
+    <div class="std-cloud rv">
+      <span class="chip"><span class="k">Protocol</span><b>DSP</b></span>
+      <span class="chip"><span class="k">Identity</span><b>DCP</b></span>
+      <span class="chip"><span class="k">Catalog</span><b>DCAT</b></span>
+      <span class="chip"><span class="k">Policies</span><b>ODRL</b></span>
+      <span class="chip"><span class="k">W3C</span><b>Verifiable Credentials 2.0</b></span>
+      <span class="chip"><span class="k">W3C</span><b>DID · did:web</b></span>
+      <span class="chip"><span class="k">Framework</span><b>IDSA · Gaia-X</b></span>
+      <span class="chip"><span class="k">Core</span><b>Eclipse EDC</b></span>
+      <span class="chip"><span class="k">Orchestration</span><b>Kubernetes</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- DEPLOYMENTS -->
+<section class="deploy pad" id="produccion">
+  <div class="wrap">
+    <div class="rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">In production today</span></div>
+      <h2 class="sec-head section-title-light">Real data spaces already running on XDATASHARE</h2>
+      <p class="sec-sub">Public and private organisations trust XDATASHARE to build sovereign data spaces, particularly in the healthcare sector.</p>
+    </div>
+
+    <!-- Complete data spaces -->
+    <div class="deploy-subtag rv"><span class="badge">Complete data spaces</span><span class="dst-line"></span><span class="dst-note">End-to-end platforms deployed with XDATASHARE</span></div>
+    <div class="deploy-grid rv">
+      <div class="dep">
+        <div class="org">CESGA · Centro de Supercomputación de Galicia</div>
+        <h3>OneHealth DataSpace</h3>
+        <p>A multisectoral data space based on the One Health approach, promoted by the DATAlife demonstration centre to enable secure and interoperable data sharing.</p>
+        <a class="link" href="https://dataspace.cesga.es/es" target="_blank" rel="noopener">dataspace.cesga.es <span>↗</span></a>
+      </div>
+      <div class="dep">
+        <div class="org">Hospital U. Puerta de Hierro</div>
+        <h3>Health Data Space</h3>
+        <p>A healthcare data space that enables the governed exchange of clinical information for care and research while preserving patient data sovereignty.</p>
+        <a class="link" href="https://healthdataspace.es/" target="_blank" rel="noopener">healthdataspace.es <span>↗</span></a>
+      </div>
+      <div class="dep">
+        <div class="org">Top Doctors · TopHealthTech</div>
+        <h3>Global HDS</h3>
+        <p>A global health data space connecting healthcare providers and platforms under shared rules for trust and data sovereignty.</p>
+        <a class="link" href="https://eds.tophealthtech.ai/" target="_blank" rel="noopener">eds.tophealthtech.ai <span>↗</span></a>
+      </div>
+      <div class="dep">
+        <div class="org">IDARA · Hospital de Pontevedra</div>
+        <h3>AIDATAMED</h3>
+        <p>A European data space focused on generating synthetic patient data for medical research while preserving people's privacy.</p>
+        <a class="link" href="https://aidatamed.idara.health/" target="_blank" rel="noopener">aidatamed.idara.health <span>↗</span></a>
+      </div>
+      <div class="dep">
+        <div class="org">IDARA · Hospital de Pontevedra</div>
+        <h3>GIFT</h3>
+        <p>A data space supporting AI-assisted medical decision-making in gastroenterology.</p>
+        <a class="link" href="https://gift.idara.health/" target="_blank" rel="noopener">gift.idara.health <span>↗</span></a>
+      </div>
+      <div class="dep dep-next">
+        <h3>Will yours be next?</h3>
+        <p>Bring your sector into a sovereign data space with Gradiant's support.</p>
+        <a class="link" href="#demo">Let's talk <span>↗</span></a>
+      </div>
+    </div>
+
+    <!-- Connectors -->
+    <div class="deploy-subtag deploy-subtag-connectors rv"><span class="badge">Data space connectors</span><span class="dst-line"></span><span class="dst-note">OneHealth DataSpace participants</span></div>
+    <p class="sedia-intro rv">Organisations can join a data space by deploying an XDATASHARE <strong>connector</strong>, without having to operate an entire data space. This also applies to R&amp;D projects and strategic consulting engagements. They are grouped below by collaboration model.</p>
+
+    <div class="conn-group rv">
+      <div class="cg-head"><span class="cg-tag mode-client">Clients · Direct procurement</span><span class="cg-desc">A connector integrated with internal systems and tailored policies</span></div>
+      <div class="conn-grid cols-3">
+        <div class="conn">
+          <h4>Cruz Roja Española</h4>
+          <p>A connector <strong>integrated with its internal data systems</strong> and equipped with <strong>custom policies</strong> tailored to its use case.</p>
+          <a class="link" href="https://www2.cruzroja.es/" target="_blank" rel="noopener">cruzroja.es <span>↗</span></a>
+        </div>
+        <div class="conn">
+          <h4>DIH DATAlife</h4>
+          <p>A connector <strong>integrated with its internal data systems</strong> and equipped with <strong>custom policies</strong> tailored to its use case.</p>
+          <a class="link" href="https://www.dihdatalife.com/" target="_blank" rel="noopener">dihdatalife.com <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn-group rv">
+      <div class="cg-head"><span class="cg-tag mode-sedia">Projects · SEDIA programme</span><span class="cg-desc">Connectors deployed under Spain's Data Spaces Acceleration Plan</span></div>
+      <div class="conn-grid cols-3">
+        <div class="conn">
+          <h4>CELIASPACE</h4>
+          <p>Universidade de Vigo. A connector deployed as part of a project funded through the <strong>SEDIA</strong> programme (Spanish State Secretariat for Digitalisation and Artificial Intelligence).</p>
+        </div>
+        <div class="conn">
+          <h4>DATIACARE</h4>
+          <p>I4LIFE. A connector deployed as part of a project funded through the <strong>SEDIA</strong> programme (Spanish State Secretariat for Digitalisation and Artificial Intelligence).</p>
+        </div>
+        <div class="conn">
+          <h4>FMLDATA</h4>
+          <p>In collaboration with Multiverse. Integration of <strong>federated learning (FL)</strong> techniques in a data space as part of a project funded through the <strong>SEDIA</strong> programme.</p>
+          <a class="link" href="https://cred.digital.gob.es/soluciones/herramientas-para-asegurar-el-cumplimiento/fmldata" target="_blank" rel="noopener">cred.digital.gob.es <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn-group rv">
+      <div class="cg-head"><span class="cg-tag mode-consult">Consulting and strategy</span><span class="cg-desc">Support for integrating existing solutions into a data space</span></div>
+      <div class="conn-grid cols-3">
+        <div class="conn">
+          <h4>Mestrelab</h4>
+          <p>Technology consulting to define an <strong>integration strategy</strong> for the company's existing solutions within a data space.</p>
+          <a class="link" href="https://mestrelab.com/" target="_blank" rel="noopener">mestrelab.com <span>↗</span></a>
+        </div>
+        <div class="conn">
+          <h4>Agrolinera</h4>
+          <p>Technology consulting to <strong>prepare its systems</strong> and deploy a connector, enabling the organisation to join a data space with full guarantees.</p>
+          <a class="link" href="https://agrolinera.com/" target="_blank" rel="noopener">agrolinera.com <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRED TRUST LIST -->
+<section class="cred-band pad">
+  <div class="wrap">
+    <div class="pitch rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Certifiable trust</span></div>
+      <h2>Ready for the CRED Trusted List</h2>
+      <p>Data spaces created with XDATASHARE are <strong>ready to join the Data Space Trusted List</strong> managed by CRED (Spain's Data Spaces Reference Centre), the official registry that identifies data spaces in Spain which pass its technical, interoperability and governance assessments in accordance with <strong>UNE Specification 0087:2025</strong>.</p>
+      <p>This includes <strong>Global HDS</strong>, a data space built on XDATASHARE.</p>
+      <a class="ex-link" href="https://eds.tophealthtech.ai/" target="_blank" rel="noopener">View Global HDS <span>↗</span></a>
+    </div>
+    <div class="cred-seal rv">
+      <img class="cred-logo" src="https://cred.digital.gob.es/content/dam/cred/imagenes/lista-de-confianza/Datos%20de%20confianza.png" alt="Official seal of the CRED Data Space Trusted List" loading="lazy">
+      <h3>Trusted data space</h3>
+      <p>CRED manages the Trusted List, an official, voluntary registry that awards a seal of excellence to data spaces which ensure shared data is used securely, ethically and transparently, in alignment with European standards.</p>
+      <div class="meta">
+        <span>UNE 0087:2025</span>
+        <span>Order TDF/1207/2025</span>
+        <span>IDSA · Gaia-X</span>
+        <span>SEDIA · Acceleration Plan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="demo">
+  <div class="wrap">
+    <div>
+      <h2>Launch your sovereign data space.</h2>
+      <p>Talk to the Gradiant team for a personalised XDATASHARE demonstration and an assessment of your use case.</p>
+    </div>
+    <a href="mailto:dataspaces@gradiant.org?subject=XDATASHARE%20demo" class="btn light">Request a demo <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <img class="flogo" src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant">
+        <div class="tagline">Connectivity · Intelligence · Security · for your business</div>
+        <p class="footer-summary">XDATASHARE — software components for sovereign data spaces compliant with IDSA and Gaia-X.</p>
+      </div>
+      <div class="contact">
+        Carretera do Vilar, 56-58<br>
+        36214 Vigo, Pontevedra, Spain<br>
+        (+34) 986 120 430<br>
+        <a href="mailto:dataspaces@gradiant.org">dataspaces@gradiant.org</a><br>
+        <a href="https://www.gradiant.org">www.gradiant.org</a>
+      </div>
+    </div>
+    <div class="bot">
+      <span>© 2026 Gradiant — Centro Tecnolóxico de Telecomunicacións de Galicia</span>
+      <span>Eclipse Dataspace Components · Apache 2.0</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/exchange.js" defer></script>
+<script src="../assets/js/hero-network.js" defer></script>
+</body>
+</html>
