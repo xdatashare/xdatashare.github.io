@@ -1,0 +1,101 @@
+/* ---------- Animated exchange ---------- */
+.exchange{margin-top:70px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.02);padding:30px 26px 22px}
+.ex-phase{display:flex;align-items:center;gap:12px;justify-content:center;font-family:'Archivo';font-weight:600;font-size:1.05rem;color:#fff;margin-bottom:8px;min-height:28px;text-align:center}
+.ex-phase #exLabel{transition:opacity .35s var(--ease)}
+.ex-dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(235,32,38,.16);animation:exPulse 1.6s var(--ease) infinite;flex:none}
+@keyframes exPulse{0%,100%{box-shadow:0 0 0 4px rgba(235,32,38,.18)}50%{box-shadow:0 0 0 9px rgba(235,32,38,.05)}}
+.ex-svg{width:100%;height:auto;display:block;max-width:720px;margin:0 auto}
+
+/* nodes */
+.ex-svg .node rect{fill:var(--ink-soft);stroke:rgba(255,255,255,.16);stroke-width:1.5;transition:stroke .4s,fill .4s}
+.ex-svg .node.active rect{stroke:var(--red);fill:#1d1416}
+.ex-svg .node-authority.active rect{stroke:#ffd166}
+.ex-svg text{font-family:'Archivo',sans-serif;text-anchor:middle;fill:#fff}
+.ex-svg .n-role{font-size:11px;letter-spacing:.13em;fill:var(--red);font-weight:700}
+.ex-svg .node-authority .n-role{fill:#ffd166}
+.ex-svg .n-name{font-size:16px;font-weight:700}
+.ex-svg .n-name-compact{font-size:15px}
+.ex-svg .n-sub{font-size:11px;fill:rgba(255,255,255,.5);font-weight:500}
+
+/* catalog */
+.ex-svg .catalog rect{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.18);stroke-width:1.5;transition:stroke .4s}
+.ex-svg.cat-on .catalog rect:first-child{stroke:var(--red)}
+.ex-svg .cat-title{font-size:11px;letter-spacing:.14em;fill:rgba(255,255,255,.7);font-weight:700}
+.ex-svg .slot rect{fill:rgba(255,255,255,.05);stroke:none;transition:fill .4s}
+.ex-svg .slot text{font-family:'JetBrains Mono';font-size:9px;text-anchor:start;fill:rgba(255,255,255,.55)}
+/* a freshly published asset lights up */
+.ex-svg.publish .slot-1 rect{fill:rgba(235,32,38,.55);animation:slotIn .6s var(--ease)}
+.ex-svg.publish .slot-1 text{fill:#fff}
+@keyframes slotIn{0%{fill:rgba(235,32,38,0)}100%{fill:rgba(235,32,38,.55)}}
+/* browsing scans the slots */
+.ex-svg.browse .slot rect{animation:scan 1.8s var(--ease)}
+.ex-svg.browse .slot-2 rect{animation-delay:.2s}
+.ex-svg.browse .slot-3 rect{animation-delay:.4s}
+@keyframes scan{0%,100%{fill:rgba(255,255,255,.05)}40%{fill:rgba(255,209,102,.4)}}
+
+/* credential badges */
+.ex-svg .vc-badge rect{fill:rgba(255,209,102,.12);stroke:rgba(255,209,102,.55);stroke-width:1.3}
+.ex-svg .vc-badge text{font-family:'JetBrains Mono';font-size:10px;fill:#ffd166;font-weight:600}
+.ex-svg .vc-badge{opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.ex-svg.creds .vc-badge{opacity:1;transform:none}
+
+/* credential issuance dashed links */
+.ex-svg .cred-link{opacity:0;stroke-dashoffset:0;transition:opacity .4s}
+.ex-svg.issuing .cred-link{opacity:1;animation:wireMove 1s linear infinite}
+
+/* connection wires */
+.ex-svg .dash{opacity:0;transition:opacity .35s}
+.ex-svg.w-pc .link-pc.dash{opacity:1;animation:wireMove 1s linear infinite}
+.ex-svg.w-cc .link-cc.dash{opacity:1;animation:wireMove 1s linear infinite}
+.ex-svg.w-direct .link-direct.dash{opacity:1;animation:wireMove 1s linear infinite}
+@keyframes wireMove{to{stroke-dashoffset:-32}}
+
+/* moving tokens (hidden by default) */
+.ex-svg .tok{opacity:0}
+.ex-svg .tok rect{fill:var(--red)}
+.ex-svg .tok line{stroke:#fff;stroke-width:1.6;stroke-linecap:round}
+.ex-svg .tok text{font-family:'JetBrains Mono';font-size:9px;fill:#fff;font-weight:600}
+.ex-svg .tok-cred-l circle,.ex-svg .tok-cred-r circle{fill:#ffd166}
+.ex-svg .tok-browse circle{stroke:#ffd166;stroke-width:2}
+.ex-svg .tok-browse .lens{stroke:#ffd166;stroke-width:2}
+.ex-svg .tok-nego rect{fill:#fff}.ex-svg .tok-nego text{fill:var(--ink)}
+
+/* token trajectories */
+.ex-svg.t-cred .tok-cred-l{animation:credL 1.4s var(--ease)}
+.ex-svg.t-cred .tok-cred-r{animation:credR 1.4s var(--ease)}
+@keyframes credL{0%{opacity:0;transform:translate(420px,78px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(150px,168px)}}
+@keyframes credR{0%{opacity:0;transform:translate(480px,78px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(750px,168px)}}
+
+/* publish: provider right edge -> catalog (along y=230) */
+.ex-svg.t-publish .tok-publish{animation:pub 1.3s var(--ease)}
+@keyframes pub{0%{opacity:0;transform:translate(210px,230px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(440px,252px)}}
+
+/* browse: consumer left edge -> into catalog (along y=230 then down) */
+.ex-svg.t-browse .tok-browse{animation:brw 1.7s var(--ease)}
+@keyframes brw{0%{opacity:0;transform:translate(690px,230px)}15%{opacity:1}55%{transform:translate(470px,250px)}80%{opacity:1;transform:translate(470px,282px)}100%{opacity:0;transform:translate(470px,300px)}}
+
+/* negotiation: along the upper route (y=140) back and forth */
+.ex-svg.t-nego .tok-nego{animation:ngo 1.6s var(--ease) infinite}
+@keyframes ngo{
+  0%{opacity:0;transform:translate(125px,154px)}
+  8%{opacity:1;transform:translate(125px,140px)}
+  42%{transform:translate(775px,140px)}
+  50%{opacity:1;transform:translate(775px,140px)}
+  84%{transform:translate(125px,140px)}
+  92%{opacity:1;transform:translate(125px,154px)}
+  100%{opacity:0;transform:translate(125px,154px)}
+}
+
+/* data transfer: along the upper route (y=140), one direction */
+.ex-svg.t-data .tok-data{animation:dat 1.4s var(--ease) infinite}
+@keyframes dat{
+  0%{opacity:0;transform:translate(125px,154px)}
+  10%{opacity:1;transform:translate(125px,140px)}
+  88%{opacity:1;transform:translate(775px,140px)}
+  100%{opacity:0;transform:translate(775px,154px)}
+}
+
+.ex-track{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.ex-step{font-family:'JetBrains Mono';font-size:.62rem;letter-spacing:.06em;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:30px;transition:.35s var(--ease)}
+.ex-step.on{color:#fff;border-color:var(--red);background:rgba(235,32,38,.14)}
+@media(max-width:560px){.ex-phase{font-size:.9rem}.exchange{padding:22px 14px 16px}.ex-step{font-size:.56rem;padding:5px 9px}}
