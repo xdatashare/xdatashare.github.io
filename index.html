@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-language-detect data-alternate-language="en" data-alternate-url="en/">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,15 @@
 <meta name="author" content="Gradiant">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://xdatashare.com/">
+<link rel="alternate" hreflang="es" href="https://xdatashare.com/">
+<link rel="alternate" hreflang="en" href="https://xdatashare.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://xdatashare.com/en/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gradiant">
 <meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="XDATASHARE · Espacios de datos soberanos — Gradiant">
 <meta property="og:description" content="Crea y opera espacios de datos federados y soberanos con XDATASHARE: conformes con IDSA y Gaia-X, basados en Eclipse EDC. Comparte datos sin ceder el control.">
 <meta property="og:url" content="https://xdatashare.com/">
@@ -61,6 +65,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Kubernetes / Cloud-native",
       "url": "https://xdatashare.com/",
+      "inLanguage": "es",
       "description": "Plataforma para crear y operar espacios de datos federados y soberanos, conforme con IDSA y Gaia-X y basada en Eclipse Dataspace Components (EDC). Permite publicar, negociar y transferir activos de datos con identidad descentralizada y trazabilidad de extremo a extremo.",
       "publisher": { "@id": "https://www.gradiant.org/#organization" },
       "offers": {
@@ -74,6 +79,7 @@
   ]
 }
 </script>
+<script src="assets/js/language.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -83,7 +89,7 @@
 </head>
 <body>
 
-<nav id="nav">
+<nav id="nav" aria-label="Navegación principal">
   <a href="#top" class="brand">
     <img src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant — XDATASHARE, espacios de datos soberanos">
     <span class="sep"></span>
@@ -95,6 +101,11 @@
     <a href="#como">Cómo funciona</a>
     <a href="#produccion">En producción</a>
     <a href="#demo" class="btn">Solicitar demo <span class="arr">→</span></a>
+    <div class="language-switcher" aria-label="Selector de idioma">
+      <a href="./?lang=es" lang="es" hreflang="es" aria-current="page" data-language-link>ES</a>
+      <span aria-hidden="true">/</span>
+      <a href="en/?lang=en" lang="en" hreflang="en" data-language-link>EN</a>
+    </div>
   </div>
 </nav>
 
@@ -224,7 +235,7 @@
 
     <!-- Animated exchange diagram -->
     <div class="exchange rv" aria-label="Animación del intercambio de datos: emisión de credenciales, catálogo, negociación y transferencia">
-      <div class="ex-phase"><span class="ex-dot"></span><span id="exLabel">La Autoridad emite credenciales verificables a los participantes</span></div>
+      <div class="ex-phase"><span class="ex-dot"></span><span id="exLabel">La Autoridad emite credenciales verificables (VC) a los participantes</span></div>
       <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" class="ex-svg">
         <!-- ===== AUTHORITY (top) ===== -->
         <g class="node node-authority">
@@ -286,12 +297,12 @@
       </svg>
 
       <div class="ex-track">
-        <span class="ex-step" data-i="0">0 · Credenciales</span>
-        <span class="ex-step" data-i="1">1 · Publicación</span>
-        <span class="ex-step" data-i="2">2 · Descubrimiento</span>
-        <span class="ex-step" data-i="3">3 · Negociación</span>
-        <span class="ex-step" data-i="4">4 · Acuerdo</span>
-        <span class="ex-step" data-i="5">5 · Transferencia</span>
+        <span class="ex-step" data-i="0" data-phase-label="La Autoridad emite credenciales verificables (VC) a los participantes">0 · Credenciales</span>
+        <span class="ex-step" data-i="1" data-phase-label="El proveedor publica un activo de datos en el catálogo (DCAT)">1 · Publicación</span>
+        <span class="ex-step" data-i="2" data-phase-label="El consumidor explora el catálogo y localiza la oferta">2 · Descubrimiento</span>
+        <span class="ex-step" data-i="3" data-phase-label="Negociación del contrato vía DSP, validando las credenciales">3 · Negociación</span>
+        <span class="ex-step" data-i="4" data-phase-label="Acuerdo de contrato firmado entre ambas partes">4 · Acuerdo</span>
+        <span class="ex-step" data-i="5" data-phase-label="Transferencia de datos (Push / Pull · EDR), supervisada en tiempo real">5 · Transferencia</span>
       </div>
     </div>
   </div>
@@ -483,7 +494,7 @@
       <a class="ex-link" href="https://eds.tophealthtech.ai/" target="_blank" rel="noopener">Ver Global HDS <span>↗</span></a>
     </div>
     <div class="cred-seal rv">
-      <img class="cred-logo" src="https://cred.digital.gob.es/lista-de-confianza/_jcr_content/root/container/container/two_columns/col1/image.coreimg.85.1600.png/1771854042400/image.png" alt="Sello oficial de la Lista de Confianza de Espacios de Datos — CRED" loading="lazy">
+      <img class="cred-logo" src="https://cred.digital.gob.es/content/dam/cred/imagenes/lista-de-confianza/Datos%20de%20confianza.png" alt="Sello oficial de la Lista de Confianza de Espacios de Datos — CRED" loading="lazy">
       <h3>Espacio de datos de confianza</h3>
       <p>El CRED gestiona la Lista de Confianza, un registro oficial y voluntario que otorga un sello de excelencia a los espacios que garantizan un uso seguro, ético y transparente de los datos compartidos, alineados con los estándares europeos.</p>
       <div class="meta">
