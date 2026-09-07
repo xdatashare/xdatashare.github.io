@@ -10,20 +10,18 @@
     const consumer=document.querySelector('.node-consumer');
 
     // each phase: label, which nodes are active, and which CSS state classes apply
-    const phases=[
-      {label:'La Autoridad emite credenciales verificables (VC) a los participantes',
-       active:['authority','provider','consumer'], cls:['issuing','t-cred']},
-      {label:'El proveedor publica un activo de datos en el catálogo (DCAT)',
-       active:['provider'], cls:['creds','cat-on','w-pc','publish','t-publish']},
-      {label:'El consumidor explora el catálogo y localiza la oferta',
-       active:['consumer'], cls:['creds','cat-on','w-cc','browse','t-browse']},
-      {label:'Negociación del contrato vía DSP, validando las credenciales',
-       active:['provider','consumer'], cls:['creds','w-direct','t-nego']},
-      {label:'Acuerdo de contrato firmado entre ambas partes',
-       active:['provider','consumer'], cls:['creds','w-direct']},
-      {label:'Transferencia de datos (Push / Pull · EDR), supervisada en tiempo real',
-       active:['provider','consumer'], cls:['creds','w-direct','t-data']}
+    const phaseStates=[
+      {active:['authority','provider','consumer'], cls:['issuing','t-cred']},
+      {active:['provider'], cls:['creds','cat-on','w-pc','publish','t-publish']},
+      {active:['consumer'], cls:['creds','cat-on','w-cc','browse','t-browse']},
+      {active:['provider','consumer'], cls:['creds','w-direct','t-nego']},
+      {active:['provider','consumer'], cls:['creds','w-direct']},
+      {active:['provider','consumer'], cls:['creds','w-direct','t-data']}
     ];
+    const phases=phaseStates.map((phase,index)=>({
+      ...phase,
+      label:steps[index]?.dataset.phaseLabel||steps[index]?.textContent.trim()||''
+    }));
     const allCls=['issuing','t-cred','creds','cat-on','w-pc','publish','t-publish',
                   'w-cc','browse','t-browse','w-direct','t-nego','t-data'];
     let i=0, running=false;
