@@ -95,17 +95,30 @@
     <span class="sep"></span>
     <span class="prod">XDATASHARE</span>
   </a>
-  <div class="navlinks">
-    <a href="#que-es">What it is</a>
-    <a href="#beneficios">Benefits</a>
-    <a href="#como">How it works</a>
-    <a href="#produccion">In production</a>
-    <a href="#demo" class="btn">Request a demo <span class="arr">→</span></a>
-    <div class="language-switcher" aria-label="Language selector">
-      <a href="../?lang=es" lang="es" hreflang="es" data-language-link>ES</a>
-      <span aria-hidden="true">/</span>
-      <a href="./?lang=en" lang="en" hreflang="en" aria-current="page" data-language-link>EN</a>
+  <div class="nav-actions">
+    <div class="navlinks" id="navMenu">
+      <a href="#que-es">What it is</a>
+      <a href="#beneficios">Benefits</a>
+      <a href="#como">How it works</a>
+      <a href="#produccion">In production</a>
+      <details class="language-switcher">
+        <summary aria-label="Language selector">
+          EN
+          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <ul class="language-options">
+          <li><a href="../?lang=es" lang="es" hreflang="es" data-language-link><span class="opt-dot" aria-hidden="true"></span>Español</a></li>
+          <li><a href="./?lang=en" lang="en" hreflang="en" aria-current="page" data-language-link><span class="opt-dot" aria-hidden="true"></span>English</a></li>
+        </ul>
+      </details>
+      <a href="#demo" class="btn">Request a demo <span class="arr">→</span></a>
     </div>
+
+    <button type="button" class="nav-toggle" id="navToggle"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Open menu"
+            data-label-open="Open menu" data-label-close="Close menu">
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+    </button>
   </div>
 </nav>
 
