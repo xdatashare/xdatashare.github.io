@@ -1,72 +1,6 @@
-  // nav shadow on scroll
-  const nav=document.getElementById('nav');
-  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
-  window.addEventListener('scroll',onScroll);onScroll();
-
-  // staggered hero reveal on load
-  window.addEventListener('load',()=>{
-    document.querySelectorAll('.hero .rv').forEach(el=>el.classList.add('in'));
-  });
-
-  // scroll reveal
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.14});
-  document.querySelectorAll('section .rv').forEach(el=>io.observe(el));
-
-  // ---- Data-exchange animation ----
-  (function(){
-    const svg=document.querySelector('.ex-svg');
-    if(!svg)return;
-    const label=document.getElementById('exLabel');
-    const steps=[...document.querySelectorAll('.ex-step')];
-    const authority=document.querySelector('.node-authority');
-    const provider=document.querySelector('.node-provider');
-    const consumer=document.querySelector('.node-consumer');
-
-    // each phase: label, which nodes are active, and which CSS state classes apply
-    const phases=[
-      {label:'La Autoridad emite credenciales verificables (VC) a los participantes',
-       active:['authority','provider','consumer'], cls:['issuing','t-cred']},
-      {label:'El proveedor publica un activo de datos en el catálogo (DCAT)',
-       active:['provider'], cls:['creds','cat-on','w-pc','publish','t-publish']},
-      {label:'El consumidor explora el catálogo y localiza la oferta',
-       active:['consumer'], cls:['creds','cat-on','w-cc','browse','t-browse']},
-      {label:'Negociación del contrato vía DSP, validando las credenciales',
-       active:['provider','consumer'], cls:['creds','w-direct','t-nego']},
-      {label:'Acuerdo de contrato firmado entre ambas partes',
-       active:['provider','consumer'], cls:['creds','w-direct']},
-      {label:'Transferencia de datos (Push / Pull · EDR), supervisada en tiempo real',
-       active:['provider','consumer'], cls:['creds','w-direct','t-data']}
-    ];
-    const allCls=['issuing','t-cred','creds','cat-on','w-pc','publish','t-publish',
-                  'w-cc','browse','t-browse','w-direct','t-nego','t-data'];
-    let i=0, running=false;
-
-    function render(p){
-      label.style.opacity=0;
-      setTimeout(()=>{label.textContent=p.label;label.style.opacity=1;},180);
-      authority.classList.toggle('active',p.active.includes('authority'));
-      provider.classList.toggle('active',p.active.includes('provider'));
-      consumer.classList.toggle('active',p.active.includes('consumer'));
-      // reset all state classes, force reflow so animations restart, then apply
-      allCls.forEach(c=>svg.classList.remove(c));
-      void svg.offsetWidth;
-      p.cls.forEach(c=>svg.classList.add(c));
-      steps.forEach((s,idx)=>s.classList.toggle('on',idx===i));
-    }
-    function tick(){render(phases[i]);i=(i+1)%phases.length;}
-
-    const startIO=new IntersectionObserver((es)=>{
-      es.forEach(e=>{
-        if(e.isIntersecting&&!running){running=true;tick();setInterval(tick,2900);}
-      });
-    },{threshold:.3});
-    startIO.observe(svg);
-  })();
-
-  // ---- Hero: secure data-sharing network (refined) ----
-  (function(){
+// ---- Hero: secure data-sharing network (refined) ----
+(function () {
+  function initHeroNetwork() {
     const canvas=document.getElementById('heroCanvas');
     if(!canvas)return;
     const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -75,7 +9,7 @@
     let W,H,dpr,nodes=[],edges=[],packets=[],raf=null,running=false,t0=0;
     const isMobile=()=>window.innerWidth<760;
 
-    function size(){
+    function resizeCanvas(){
       const r=canvas.getBoundingClientRect();
       dpr=Math.min(window.devicePixelRatio||1,2);
       W=r.width;H=r.height;
@@ -83,7 +17,7 @@
       ctx.setTransform(dpr,0,0,dpr,0,0);
     }
 
-    function build(){
+    function buildNetwork(){
       const count=isMobile()?9:16;
       nodes=[];
       for(let i=0;i<count;i++){
@@ -116,7 +50,7 @@
     }
 
     let lastSpawn=0;
-    function frame(ts){
+    function drawFrame(ts){
       if(!t0)t0=ts;
       const time=(ts-t0)*0.001;
       ctx.clearRect(0,0,W,H);
@@ -178,13 +112,13 @@
         ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fill();
       }
 
-      raf=requestAnimationFrame(frame);
+      raf=requestAnimationFrame(drawFrame);
     }
 
-    function start(){if(running)return;running=true;lastSpawn=0;t0=0;raf=requestAnimationFrame(frame);}
-    function stop(){running=false;if(raf)cancelAnimationFrame(raf);}
-    function init(){size();build();packets=[];}
-    init();
+    function startAnimation(){if(running)return;running=true;lastSpawn=0;t0=0;raf=requestAnimationFrame(drawFrame);}
+    function stopAnimation(){running=false;if(raf)cancelAnimationFrame(raf);}
+    function initializeNetwork(){resizeCanvas();buildNetwork();packets=[];}
+    initializeNetwork();
 
     if(reduce){
       for(const e of edges){const a=nodes[e.a],b=nodes[e.b];
@@ -200,11 +134,14 @@
     }
 
     const heroEl=document.getElementById('top');
-    const vis=new IntersectionObserver((es)=>{es.forEach(e=>{e.isIntersecting?start():stop();});},{threshold:0});
+    const vis=new IntersectionObserver((es)=>{es.forEach(e=>{e.isIntersecting?startAnimation():stopAnimation();});},{threshold:0});
     vis.observe(heroEl);
 
     let rt;
     window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{
-      const wasRunning=running;stop();init();if(wasRunning)start();
+      const wasRunning=running;stopAnimation();initializeNetwork();if(wasRunning)startAnimation();
     },200);});
-  })();
+  }
+
+  initHeroNetwork();
+})();

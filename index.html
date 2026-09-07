@@ -77,7 +77,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/exchange.css">
 </head>
 <body>
 
@@ -101,14 +103,14 @@
   <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-glass" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="eyebrow rv" style="--d:0s"><span class="dot"></span><span class="mono">Espacios de datos soberanos · IDSA · Gaia-X</span></div>
-    <h1 class="rv" style="--d:.08s">Comparte tus datos <em>sin ceder</em> el control.<span class="sr-only"> XDATASHARE de Gradiant: plataforma de espacios de datos soberanos.</span></h1>
-    <p class="lead rv" style="--d:.16s">Fruto de la investigación de Gradiant en espacios de datos, XDATASHARE es la plataforma para crear y operar espacios de datos federados y soberanos. Publica, negocia y transfiere activos de datos bajo tus propias reglas, con identidad descentralizada y trazabilidad de extremo a extremo — sobre estándares europeos abiertos.</p>
-    <div class="cta-row rv" style="--d:.24s">
+    <div class="eyebrow rv"><span class="dot"></span><span class="mono">Espacios de datos soberanos · IDSA · Gaia-X</span></div>
+    <h1 class="rv rv-delay-1">Comparte tus datos <em>sin ceder</em> el control.<span class="sr-only"> XDATASHARE de Gradiant: plataforma de espacios de datos soberanos.</span></h1>
+    <p class="lead rv rv-delay-2">Fruto de la investigación de Gradiant en espacios de datos, XDATASHARE es la plataforma para crear y operar espacios de datos federados y soberanos. Publica, negocia y transfiere activos de datos bajo tus propias reglas, con identidad descentralizada y trazabilidad de extremo a extremo — sobre estándares europeos abiertos.</p>
+    <div class="cta-row rv rv-delay-3">
       <a href="#demo" class="btn">Solicitar una demo <span class="arr">→</span></a>
       <a href="#que-es" class="btn ghost">Ver cómo funciona</a>
     </div>
-    <div class="std-strip rv" style="--d:.32s">
+    <div class="std-strip rv rv-delay-4">
       <span class="lbl">Construido sobre</span>
       <span class="item">Eclipse <span>EDC</span></span>
       <span class="item">Data Space <span>Protocol</span></span>
@@ -184,7 +186,7 @@
   <div class="wrap">
     <div class="rv">
       <div class="sec-tag"><span class="bar"></span><span class="mono">Del catálogo a la transferencia</span></div>
-      <h2 class="sec-head" style="color:#fff">Cómo funciona un intercambio</h2>
+      <h2 class="sec-head section-title-light">Cómo funciona un intercambio</h2>
       <p class="sec-sub">Cada activo de datos recorre un flujo gobernado por políticas, conforme al Data Space Protocol. Push y Pull son dos materializaciones del mismo acuerdo.</p>
     </div>
     <div class="steps rv">
@@ -228,7 +230,7 @@
         <g class="node node-authority">
           <rect x="350" y="14" width="200" height="64" rx="10"/>
           <text class="n-role" x="450" y="40">AUTORIDAD DEL ESPACIO</text>
-          <text class="n-name" x="450" y="63" style="font-size:15px">Issuer Service · ParIS</text>
+          <text class="n-name n-name-compact" x="450" y="63">Issuer Service · ParIS</text>
         </g>
 
         <!-- credential issuance links (authority -> participants) -->
@@ -369,7 +371,7 @@
   <div class="wrap">
     <div class="rv">
       <div class="sec-tag"><span class="bar"></span><span class="mono">En producción hoy</span></div>
-      <h2 class="sec-head" style="color:#fff">Espacios de datos reales, ya operando con XDATASHARE</h2>
+      <h2 class="sec-head section-title-light">Espacios de datos reales, ya operando con XDATASHARE</h2>
       <p class="sec-sub">Organizaciones públicas y privadas confían en XDATASHARE para construir sus espacios de datos soberanos, especialmente en el ámbito de la salud.</p>
     </div>
 
@@ -406,15 +408,15 @@
         <p>Espacio de datos para el apoyo a la toma de decisiones médicas en gastroenterología mediante inteligencia artificial.</p>
         <a class="link" href="https://gift.idara.health/" target="_blank" rel="noopener">gift.idara.health <span>↗</span></a>
       </div>
-      <div class="dep" style="justify-content:center">
-        <h3 style="color:var(--red)">¿El siguiente?</h3>
+      <div class="dep dep-next">
+        <h3>¿El siguiente?</h3>
         <p>Lleva tu sector a un espacio de datos soberano con el respaldo de Gradiant.</p>
         <a class="link" href="#demo">Hablemos <span>↗</span></a>
       </div>
     </div>
 
     <!-- Connectors -->
-    <div class="deploy-subtag rv" style="margin-top:64px"><span class="badge">Conectores de espacio de datos</span><span class="dst-line"></span><span class="dst-note">Participantes del OneHealth DataSpace</span></div>
+    <div class="deploy-subtag deploy-subtag-connectors rv"><span class="badge">Conectores de espacio de datos</span><span class="dst-line"></span><span class="dst-note">Participantes del OneHealth DataSpace</span></div>
     <p class="sedia-intro rv">Organizaciones que se incorporan a un espacio de datos desplegando un <strong>conector</strong> XDATASHARE, sin necesidad de operar un espacio completo, además de proyectos de I+D y de consultoría estratégica. Las agrupamos según su vía de colaboración.</p>
 
     <div class="conn-group rv">
@@ -512,7 +514,7 @@
       <div>
         <img class="flogo" src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant">
         <div class="tagline">Connectivity · Intelligence · Security · for your business</div>
-        <p style="margin-top:18px;max-width:34ch;font-size:.92rem">XDATASHARE — componentes de software para espacios de datos soberanos, conformes con IDSA y Gaia-X.</p>
+        <p class="footer-summary">XDATASHARE — componentes de software para espacios de datos soberanos, conformes con IDSA y Gaia-X.</p>
       </div>
       <div class="contact">
         Carretera do Vilar, 56-58<br>
@@ -529,6 +531,8 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/exchange.js" defer></script>
+<script src="assets/js/hero-network.js" defer></script>
 </body>
 </html>
