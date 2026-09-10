@@ -15,10 +15,13 @@ nav.scrolled{background:rgba(11,12,14,.9);backdrop-filter:blur(14px);padding:11p
 .brand .sep{width:1px;height:20px;background:rgba(255,255,255,.22)}
 .brand .prod{font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:.22em;color:var(--red);font-weight:500;padding-top:2px}
 .nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:22px;flex:1}
-.navlinks{display:flex;align-items:center;gap:30px;flex:1}
+.navlinks{display:flex;align-items:center;flex:1}
 /* Los enlaces y el selector de idioma se centran en el hueco que queda entre la marca
    y el CTA: dos márgenes automáticos reparten a partes iguales el espacio libre de la
-   fila, uno antes del grupo y otro antes del botón, que se queda al final. */
+   fila, uno antes del grupo y otro antes del botón, que se queda al final. La
+   separación va en margen y no en `gap` porque el botón necesita sustituir la suya por
+   el margen automático; con `gap` ese hueco se sumaría y descentraría el grupo. */
+.navlinks>*+*{margin-left:30px}
 .navlinks>a:first-child,.navlinks>a.btn{margin-left:auto}
 .navlinks a{color:rgba(255,255,255,.78);font-size:.92rem;font-weight:500;transition:color .25s}
 .navlinks a:hover{color:#fff}
@@ -100,11 +103,18 @@ nav.menu-open{
     border-bottom:1px solid rgba(255,255,255,.08);
     box-shadow:0 26px 40px -28px rgba(0,0,0,.9);
     opacity:0;visibility:hidden;transform:translateY(-10px);
+  }
+  /* La transición se habilita solo al usar el botón. Al cruzar el punto de ruptura el
+     panel pasa de fila visible a panel oculto, y con la transición puesta el navegador
+     animaba ese salto: el menú se mostraba entero y se desvanecía sin que nadie lo
+     hubiera abierto. `site.js` retira la clase en cada cambio de punto de ruptura. */
+  nav.menu-animatable .navlinks{
     transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
   }
   nav.menu-open .navlinks{opacity:1;visibility:visible;transform:none}
-  /* el panel es una columna estirada: los márgenes automáticos del centrado en fila
-     encogerían los enlaces y los pegarían a la derecha */
+  /* el panel es una columna estirada: los márgenes del centrado en fila encogerían los
+     enlaces y los pegarían a la derecha */
+  .navlinks>*+*{margin-left:0}
   .navlinks>a:first-child,.navlinks>a.btn{margin-left:0}
   .navlinks>a{padding:15px 2px;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.07)}
   .navlinks>a:last-child{border-bottom:0}
@@ -120,7 +130,7 @@ nav.menu-open{
 }
 
 @media(prefers-reduced-motion:reduce){
-  .navlinks,.nav-toggle-icon,
+  nav.menu-animatable .navlinks,.nav-toggle-icon,
   .nav-toggle-icon::before,.nav-toggle-icon::after{transition:none}
 }
 
@@ -163,7 +173,9 @@ nav.menu-open{
 }
 @media(max-width:640px){.hero-glass{backdrop-filter:blur(2.5px);-webkit-backdrop-filter:blur(2.5px)}}
 .eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--red);margin-bottom:26px}
-.eyebrow .dot{width:7px;height:7px;background:var(--red);border-radius:50%;box-shadow:0 0 0 4px rgba(235,32,38,.18)}
+.eyebrow .dot{width:7px;height:7px;background:var(--red);border-radius:50%;box-shadow:0 0 0 4px rgba(235,32,38,.25);animation:hero-dot-pulse 1.8s var(--ease) infinite}
+@keyframes hero-dot-pulse{0%,100%{box-shadow:0 0 0 4px rgba(235,32,38,.25)}50%{box-shadow:0 0 0 12px rgba(235,32,38,.1)}}
+@media(prefers-reduced-motion:reduce){.eyebrow .dot{animation:none}}
 .hero h1{font-size:clamp(2.7rem,6.4vw,5.3rem);font-weight:800;max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--red)}
 .hero p.lead{
