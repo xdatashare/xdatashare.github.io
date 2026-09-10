@@ -1,19 +1,25 @@
 /* ---------- Nav (dark) ---------- */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 28px;
+  padding:16px 0;
   background:transparent;
   border-bottom:1px solid transparent;
   transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
 }
-nav.scrolled{background:rgba(11,12,14,.9);backdrop-filter:blur(14px);padding:11px 28px;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 12px 34px -24px rgba(0,0,0,.8)}
+/* La barra ocupa todo el ancho, pero su contenido se alinea con la columna del cuerpo:
+   de ahí que el relleno lateral lo ponga .wrap y el nav solo conserve el vertical. */
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+nav.scrolled{background:rgba(11,12,14,.9);backdrop-filter:blur(14px);padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 12px 34px -24px rgba(0,0,0,.8)}
 .brand{display:flex;align-items:center;gap:14px}
 .brand img{height:28px;width:auto;display:block}
 .brand .sep{width:1px;height:20px;background:rgba(255,255,255,.22)}
 .brand .prod{font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:.22em;color:var(--red);font-weight:500;padding-top:2px}
-.nav-actions{display:flex;align-items:center;gap:22px}
-.navlinks{display:flex;align-items:center;gap:30px}
+.nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:22px;flex:1}
+.navlinks{display:flex;align-items:center;gap:30px;flex:1}
+/* Los enlaces y el selector de idioma se centran en el hueco que queda entre la marca
+   y el CTA: dos márgenes automáticos reparten a partes iguales el espacio libre de la
+   fila, uno antes del grupo y otro antes del botón, que se queda al final. */
+.navlinks>a:first-child,.navlinks>a.btn{margin-left:auto}
 .navlinks a{color:rgba(255,255,255,.78);font-size:.92rem;font-weight:500;transition:color .25s}
 .navlinks a:hover{color:#fff}
 
@@ -81,15 +87,15 @@ nav.menu-open{
 }
 
 @media(max-width:1000px){
-  nav{padding:14px 20px}
-  nav.scrolled{padding:11px 20px}
+  nav{padding:14px 0}
+  nav.scrolled{padding:11px 0}
   .nav-actions{gap:12px}
   .nav-toggle{display:inline-flex}
 
   .navlinks{
     position:absolute;top:100%;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
-    padding:6px 20px 22px;
+    padding:6px 28px 22px;
     background:var(--ink);
     border-bottom:1px solid rgba(255,255,255,.08);
     box-shadow:0 26px 40px -28px rgba(0,0,0,.9);
@@ -97,6 +103,9 @@ nav.menu-open{
     transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
   }
   nav.menu-open .navlinks{opacity:1;visibility:visible;transform:none}
+  /* el panel es una columna estirada: los márgenes automáticos del centrado en fila
+     encogerían los enlaces y los pegarían a la derecha */
+  .navlinks>a:first-child,.navlinks>a.btn{margin-left:0}
   .navlinks>a{padding:15px 2px;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.07)}
   .navlinks>a:last-child{border-bottom:0}
   .navlinks>a.btn{justify-content:center;margin-top:18px;padding:14px 20px;border-bottom:0}
