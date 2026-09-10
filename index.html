@@ -90,35 +90,37 @@
 <body>
 
 <nav id="nav" aria-label="Navegación principal">
-  <a href="#top" class="brand">
-    <img src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant — XDATASHARE, espacios de datos soberanos">
-    <span class="sep"></span>
-    <span class="prod">XDATASHARE</span>
-  </a>
-  <div class="nav-actions">
-    <div class="navlinks" id="navMenu">
-      <a href="#que-es">Qué es</a>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#como">Cómo funciona</a>
-      <a href="#produccion">En producción</a>
-      <details class="language-switcher">
-        <summary aria-label="Selector de idioma">
-          ES
-          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <ul class="language-options">
-          <li><a href="./?lang=es" lang="es" hreflang="es" aria-current="page" data-language-link><span class="opt-dot" aria-hidden="true"></span>Español</a></li>
-          <li><a href="en/?lang=en" lang="en" hreflang="en" data-language-link><span class="opt-dot" aria-hidden="true"></span>English</a></li>
-        </ul>
-      </details>
-      <a href="#demo" class="btn">Solicitar demo <span class="arr">→</span></a>
-    </div>
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="https://gradiant.org/wp-content/uploads/2024/10/LogoGradiant-2.svg" alt="Gradiant — XDATASHARE, espacios de datos soberanos">
+      <span class="sep"></span>
+      <span class="prod">XDATASHARE</span>
+    </a>
+    <div class="nav-actions">
+      <div class="navlinks" id="navMenu">
+        <a href="#que-es">Qué es</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#como">Cómo funciona</a>
+        <a href="#produccion">En producción</a>
+        <details class="language-switcher">
+          <summary aria-label="Selector de idioma">
+            ES
+            <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="language-options">
+            <li><a href="./?lang=es" lang="es" hreflang="es" aria-current="page" data-language-link><span class="opt-dot" aria-hidden="true"></span>Español</a></li>
+            <li><a href="en/?lang=en" lang="en" hreflang="en" data-language-link><span class="opt-dot" aria-hidden="true"></span>English</a></li>
+          </ul>
+        </details>
+        <a href="#demo" class="btn">Solicitar demo <span class="arr">→</span></a>
+      </div>
 
-    <button type="button" class="nav-toggle" id="navToggle"
-            aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"
-            data-label-open="Abrir menú" data-label-close="Cerrar menú">
-      <span class="nav-toggle-icon" aria-hidden="true"></span>
-    </button>
+      <button type="button" class="nav-toggle" id="navToggle"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"
+              data-label-open="Abrir menú" data-label-close="Cerrar menú">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -157,6 +159,165 @@
         <p><strong>XDATASHARE</strong> proporciona los componentes de software esenciales para crear un espacio de datos conforme a las especificaciones de la <strong>IDSA</strong> (International Data Spaces Association) y <strong>Gaia-X</strong>, basándose en el conector de <strong>Eclipse Dataspace Components (EDC)</strong>, la implementación de referencia de código abierto.</p>
         <p>El resultado: intercambio de datos donde cada participante conserva la <strong>soberanía total</strong> sobre sus activos, define sus políticas y mantiene la confianza sin un intermediario que controle el dato.</p>
         <p>XDATASHARE es la materialización de la <strong>investigación de Gradiant</strong> en espacios de datos: años de I+D aplicada trasladados a una tecnología lista para producción.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTALS -->
+<section class="portal-showcase pad" id="portales" data-portal-switch data-role="authority">
+  <span class="portal-edge" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="portal-head rv">
+      <div class="sec-tag"><span class="bar"></span><span class="mono">Los dos portales</span></div>
+
+      <button class="portal-lever" type="button" data-portal-toggle>
+        <span class="portal-lever-now">
+          <span class="mono">Estás viendo</span>
+          <span class="portal-swap-stack">
+            <span class="portal-swap" data-portal-role="authority"><span class="portal-lever-title">Portal de la Autoridad</span></span>
+            <span class="portal-swap" data-portal-role="participant"><span class="portal-lever-title">Portal del Participante</span></span>
+          </span>
+        </span>
+        <span class="portal-lever-go">
+          <span class="portal-swap-stack">
+            <span class="portal-swap" data-portal-role="authority"><span class="portal-lever-next">Cambiar al Portal del Participante</span></span>
+            <span class="portal-swap" data-portal-role="participant"><span class="portal-lever-next">Cambiar al Portal de la Autoridad</span></span>
+          </span>
+          <span class="portal-lever-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </button>
+
+      <div class="portal-head-copy portal-swap-stack">
+        <div class="portal-swap" data-portal-role="authority">
+          <h2>Gobierna el espacio de datos desde una sola pantalla</h2>
+          <p class="portal-intro">Gestiona participantes y credenciales, configura casos de uso y consulta la trazabilidad del espacio de datos. Sin consola ni ficheros de configuración.</p>
+        </div>
+        <div class="portal-swap" data-portal-role="participant">
+          <h2>Gestiona tu participación y tus activos desde una única interfaz</h2>
+          <p class="portal-intro">Explora el catálogo del espacio de datos, administra tus activos y define contratos y políticas reutilizables para compartir datos con control.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="portal-stage portal-swap-stack rv">
+      <div class="portal-swap" data-portal-role="authority" data-portal-carousel>
+        <div class="portal-layout">
+          <div class="portal-copy">
+            <div class="portal-tabs" role="tablist" aria-label="Funciones del Portal de la Autoridad">
+              <button class="portal-tab is-active" type="button" role="tab" id="authority-tab-1" aria-controls="authority-panel-1" aria-selected="true" tabindex="0" data-carousel-index="0" data-carousel-caption="Pantalla 01 · Participantes" data-carousel-address="XDATASHARE / Portal de la Autoridad / Participantes">
+                <span class="portal-tab-number">01</span>
+                <span><strong>Gestiona participantes y sus credenciales</strong><small>Consulta toda la información registrada de cada participante del espacio de datos; crea y administra organizaciones desde el mismo panel.</small></span>
+              </button>
+              <button class="portal-tab" type="button" role="tab" id="authority-tab-2" aria-controls="authority-panel-2" aria-selected="false" tabindex="-1" data-carousel-index="1" data-carousel-caption="Pantalla 02 · Casos de uso" data-carousel-address="XDATASHARE / Portal de la Autoridad / Casos de uso">
+                <span class="portal-tab-number">02</span>
+                <span><strong>Configura los casos de uso del espacio</strong><small>Crea cada caso de uso, asigna los participantes que lo integran y gestiona su configuración desde una única vista.</small></span>
+              </button>
+              <button class="portal-tab" type="button" role="tab" id="authority-tab-3" aria-controls="authority-panel-3" aria-selected="false" tabindex="-1" data-carousel-index="2" data-carousel-caption="Pantalla 03 · Auditoría" data-carousel-address="XDATASHARE / Portal de la Autoridad / Auditoría">
+                <span class="portal-tab-number">03</span>
+                <span><strong>Consulta los registros de auditoría</strong><small>Filtra los eventos del protocolo y consulta todo el detalle registrado de cada operación para mantener la trazabilidad.</small></span>
+              </button>
+              <button class="portal-tab" type="button" role="tab" id="authority-tab-4" aria-controls="authority-panel-4" aria-selected="false" tabindex="-1" data-carousel-index="3" data-carousel-caption="Pantalla 04 · Propiedades" data-carousel-address="XDATASHARE / Portal de la Autoridad / Propiedades">
+                <span class="portal-tab-number">04</span>
+                <span><strong>Define los grupos de propiedades</strong><small>Crea grupos de campos obligatorios y opcionales para mantener metadatos completos y consistentes en los activos.</small></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="portal-media">
+            <div class="portal-frame">
+              <div class="portal-browser">
+                <span class="portal-browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="portal-browser-address" aria-hidden="true" data-carousel-address>XDATASHARE / Portal de la Autoridad / Participantes</span>
+                <button class="portal-chrome-button" type="button" data-carousel-expand aria-label="Ampliar la captura del Portal de la Autoridad">
+                  <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M1 6V1h5M15 6V1h-5M15 10v5h-5M1 10v5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="portal-panels">
+                <figure class="portal-panel" role="tabpanel" id="authority-panel-1" aria-labelledby="authority-tab-1" data-carousel-index="0">
+                  <img src="images/Portal%20Autoridad/Users.png" width="1849" height="993" loading="lazy" decoding="async" alt="Captura del Portal de la Autoridad con la gestión de participantes">
+                </figure>
+                <figure class="portal-panel" role="tabpanel" id="authority-panel-2" aria-labelledby="authority-tab-2" data-carousel-index="1" hidden>
+                  <img src="images/Portal%20Autoridad/UseCase.png" width="1849" height="993" loading="lazy" decoding="async" alt="Captura del Portal de la Autoridad con la gestión de casos de uso">
+                </figure>
+                <figure class="portal-panel" role="tabpanel" id="authority-panel-3" aria-labelledby="authority-tab-3" data-carousel-index="2" hidden>
+                  <img src="images/Portal%20Autoridad/Audit.png" width="1849" height="993" loading="lazy" decoding="async" alt="Captura del Portal de la Autoridad con los registros de auditoría">
+                </figure>
+                <figure class="portal-panel" role="tabpanel" id="authority-panel-4" aria-labelledby="authority-tab-4" data-carousel-index="3" hidden>
+                  <img src="images/Portal%20Autoridad/Properties.png" width="1849" height="993" loading="lazy" decoding="async" alt="Captura del Portal de la Autoridad con la gestión de propiedades de activos">
+                </figure>
+              </div>
+            </div>
+            <div class="portal-status">
+              <span data-carousel-caption>Pantalla 01 · Participantes</span>
+              <div class="portal-indicators" aria-label="Seleccionar pantalla del Portal de la Autoridad">
+                <button class="is-active" type="button" aria-label="Mostrar pantalla 1: Participantes" aria-pressed="true" data-carousel-index="0"></button>
+                <button type="button" aria-label="Mostrar pantalla 2: Casos de uso" aria-pressed="false" data-carousel-index="1"></button>
+                <button type="button" aria-label="Mostrar pantalla 3: Auditoría" aria-pressed="false" data-carousel-index="2"></button>
+                <button type="button" aria-label="Mostrar pantalla 4: Propiedades" aria-pressed="false" data-carousel-index="3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portal-swap" data-portal-role="participant" data-portal-carousel>
+        <div class="portal-layout portal-layout-reverse">
+          <div class="portal-copy">
+            <div class="portal-tabs" role="tablist" aria-label="Funciones del Portal del Participante">
+              <button class="portal-tab is-active" type="button" role="tab" id="participant-tab-1" aria-controls="participant-panel-1" aria-selected="true" tabindex="0" data-carousel-index="0" data-carousel-caption="Pantalla 01 · Catálogo" data-carousel-address="XDATASHARE / Portal del Participante / Catálogo">
+                <span class="portal-tab-number">01</span>
+                <span><strong>Explora el catálogo del espacio de datos</strong><small>Consulta proveedores, conjuntos de datos y sus métodos de distribución; filtra por caso de uso y negocia el acceso desde cada activo.</small></span>
+              </button>
+              <button class="portal-tab" type="button" role="tab" id="participant-tab-2" aria-controls="participant-panel-2" aria-selected="false" tabindex="-1" data-carousel-index="1" data-carousel-caption="Pantalla 02 · Activos" data-carousel-address="XDATASHARE / Portal del Participante / Activos">
+                <span class="portal-tab-number">02</span>
+                <span><strong>Gestiona los activos de tu organización</strong><small>Crea, consulta y organiza los conjuntos de datos de tu conector, cada uno con su tipo de origen: almacenamiento en la nube, API HTTP o enlaces a ficheros.</small></span>
+              </button>
+              <button class="portal-tab" type="button" role="tab" id="participant-tab-3" aria-controls="participant-panel-3" aria-selected="false" tabindex="-1" data-carousel-index="2" data-carousel-caption="Pantalla 03 · Definiciones de contrato" data-carousel-address="XDATASHARE / Portal del Participante / Definiciones de contrato">
+                <span class="portal-tab-number">03</span>
+                <span><strong>Define contratos reutilizables</strong><small>Asocia activos y políticas en definiciones de contrato reutilizables para establecer las condiciones de acceso a los datos.</small></span>
+              </button>
+              <button class="portal-tab" type="button" role="tab" id="participant-tab-4" aria-controls="participant-panel-4" aria-selected="false" tabindex="-1" data-carousel-index="3" data-carousel-caption="Pantalla 04 · Políticas" data-carousel-address="XDATASHARE / Portal del Participante / Políticas">
+                <span class="portal-tab-number">04</span>
+                <span><strong>Centraliza las políticas de acceso</strong><small>Crea y consulta políticas con sus reglas y configuración, listas para aplicarlas a tus definiciones de contrato.</small></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="portal-media">
+            <div class="portal-frame">
+              <div class="portal-browser">
+                <span class="portal-browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="portal-browser-address" aria-hidden="true" data-carousel-address>XDATASHARE / Portal del Participante / Catálogo</span>
+                <button class="portal-chrome-button" type="button" data-carousel-expand aria-label="Ampliar la captura del Portal del Participante">
+                  <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M1 6V1h5M15 6V1h-5M15 10v5h-5M1 10v5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="portal-panels">
+                <figure class="portal-panel" role="tabpanel" id="participant-panel-1" aria-labelledby="participant-tab-1" data-carousel-index="0">
+                  <img src="images/Portal%20Participante/Catalog.png" width="1849" height="993" loading="lazy" decoding="async" alt="Catálogo de datos del Portal del Participante con proveedores, conjuntos de datos y opciones para negociar">
+                </figure>
+                <figure class="portal-panel" role="tabpanel" id="participant-panel-2" aria-labelledby="participant-tab-2" data-carousel-index="1" hidden>
+                  <img src="images/Portal%20Participante/Assets.png" width="1849" height="993" loading="lazy" decoding="async" alt="Gestión de activos del Portal del Participante con conjuntos de datos publicados">
+                </figure>
+                <figure class="portal-panel" role="tabpanel" id="participant-panel-3" aria-labelledby="participant-tab-3" data-carousel-index="2" hidden>
+                  <img src="images/Portal%20Participante/Contract.png" width="1849" height="993" loading="lazy" decoding="async" alt="Definiciones de contrato del Portal del Participante con activos y políticas asociadas">
+                </figure>
+                <figure class="portal-panel" role="tabpanel" id="participant-panel-4" aria-labelledby="participant-tab-4" data-carousel-index="3" hidden>
+                  <img src="images/Portal%20Participante/Polices.png" width="1849" height="993" loading="lazy" decoding="async" alt="Gestión de políticas del Portal del Participante con reglas configuradas">
+                </figure>
+              </div>
+            </div>
+            <div class="portal-status">
+              <span data-carousel-caption>Pantalla 01 · Catálogo</span>
+              <div class="portal-indicators" aria-label="Seleccionar pantalla del Portal del Participante">
+                <button class="is-active" type="button" aria-label="Mostrar pantalla 1: Catálogo" aria-pressed="true" data-carousel-index="0"></button>
+                <button type="button" aria-label="Mostrar pantalla 2: Activos" aria-pressed="false" data-carousel-index="1"></button>
+                <button type="button" aria-label="Mostrar pantalla 3: Definiciones de contrato" aria-pressed="false" data-carousel-index="2"></button>
+                <button type="button" aria-label="Mostrar pantalla 4: Políticas" aria-pressed="false" data-carousel-index="3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -555,8 +716,23 @@
   </div>
 </footer>
 
+<dialog class="portal-lightbox" id="portalLightbox" tabindex="-1" aria-labelledby="portalLightboxCaption">
+  <div class="portal-lightbox-frame">
+    <div class="portal-browser">
+      <span class="portal-browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="portal-browser-address" aria-hidden="true" data-lightbox-address></span>
+      <button class="portal-chrome-button" type="button" data-lightbox-close aria-label="Cerrar la vista ampliada">
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="portal-lightbox-canvas" data-lightbox-canvas></div>
+  </div>
+  <p class="portal-lightbox-caption" id="portalLightboxCaption" data-lightbox-caption></p>
+</dialog>
+
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/exchange.js" defer></script>
 <script src="assets/js/hero-network.js" defer></script>
+<script src="assets/js/portal-carousel.js" defer></script>
 </body>
 </html>

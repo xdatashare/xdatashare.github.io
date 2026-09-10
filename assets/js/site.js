@@ -56,7 +56,20 @@
     const mobileQuery = window.matchMedia('(max-width:1000px)');
     const isMenuOpen = () => nav.classList.contains('menu-open');
 
+    // La transición del panel cuelga de `menu-animatable` en lugar de estar siempre
+    // puesta: al cruzar el punto de ruptura el panel pasa de fila visible a panel oculto
+    // y el navegador animaba ese salto, mostrando el menú entero y desvaneciéndolo sin
+    // que nadie lo hubiera abierto. Solo se habilita al usar el botón, y leer el layout
+    // asienta el estado sin transición antes de cambiarlo: si ambas cosas ocurren en el
+    // mismo estilo, el navegador salta al valor final en vez de animarlo.
+    const enableMenuAnimation = () => {
+      if (nav.classList.contains('menu-animatable')) return;
+      nav.classList.add('menu-animatable');
+      void nav.offsetWidth;
+    };
+
     const setMenuOpen = shouldOpen => {
+      enableMenuAnimation();
       nav.classList.toggle('menu-open', shouldOpen);
       toggleButton.setAttribute('aria-expanded', String(shouldOpen));
       const label = shouldOpen ? toggleButton.dataset.labelClose : toggleButton.dataset.labelOpen;
@@ -82,6 +95,9 @@
     });
     mobileQuery.addEventListener('change', event => {
       if (!event.matches) closeMenu();
+      // pasar de barra a menú no es una interacción: el panel debe tomar su estado sin
+      // animarse, y la próxima apertura volverá a habilitar la transición
+      nav.classList.remove('menu-animatable');
     });
   }
 
