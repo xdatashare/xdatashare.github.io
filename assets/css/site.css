@@ -182,6 +182,281 @@ nav.menu-open{
 .problem .right p strong{color:var(--ink);font-weight:600}
 @media(max-width:840px){.problem .grid{grid-template-columns:1fr;gap:36px}}
 
+/* ---------- Portal showcase ----------
+   Una sola sección para los dos portales. El rol activo vive en data-role y de él
+   cuelgan el tema, la posición de la barra roja y qué bloque se ve. */
+
+/* La duración y el ancho de la barra viven en :root porque los pseudoelementos
+   ::view-transition-* cuelgan del elemento raíz y no ven las variables de la sección. */
+:root{--portal-speed:.62s;--portal-edge-width:8px}
+
+.portal-showcase{
+  --portal-bg:var(--paper);--portal-copy:var(--ink);--portal-muted:var(--muted);
+  --portal-line:var(--line);--portal-active:rgba(235,32,38,.06);
+  --portal-chrome:var(--paper-warm);--portal-chrome-text:var(--muted);
+  --portal-shadow:0 40px 80px -40px rgba(0,0,0,.45);
+  position:relative;overflow:hidden;padding:100px 0;
+  background:var(--portal-bg);color:var(--portal-copy);
+  border-top:1px solid var(--portal-line);border-bottom:1px solid var(--portal-line);
+  transition:background var(--portal-speed) var(--ease),color var(--portal-speed) var(--ease),
+             border-color var(--portal-speed) var(--ease);
+}
+.portal-showcase[data-role="participant"]{
+  --portal-bg:var(--ink);--portal-copy:#fff;--portal-muted:rgba(255,255,255,.6);
+  --portal-line:rgba(255,255,255,.1);--portal-active:rgba(235,32,38,.07);
+  --portal-chrome:var(--ink-soft);--portal-chrome-text:rgba(255,255,255,.42);
+  --portal-shadow:0 40px 80px -40px rgba(0,0,0,.9);
+}
+/* La barra viaja con `left`, relativo a la sección: `100vw` incluiría la barra de
+   desplazamiento y la dejaría fuera del recuadro. */
+.portal-edge{
+  position:absolute;top:0;bottom:0;width:var(--portal-edge-width);background:var(--red);
+  left:calc(100% - var(--portal-edge-width));transition:left var(--portal-speed) var(--ease);
+}
+.portal-showcase[data-role="participant"] .portal-edge{left:0}
+
+/* ---------- barrido ----------
+   Mientras dura el cambio de rol, la sección se captura con la View Transitions API:
+   la foto del estado saliente se queda quieta y la capa entrante se descubre con un
+   recorte que arranca en el propio canto de la barra. Así el fondo, los textos y la
+   captura solo cambian por donde la barra ya ha pasado. */
+html.is-portal-wiping{view-transition-name:none}
+html.is-portal-wiping .portal-showcase{view-transition-name:portal-showcase}
+/* El overlay de la transición se pinta sobre todo el documento, también sobre el nav
+   fijo. Se captura por separado y su grupo se eleva para que la sección no lo tape ni
+   lo recorte cuando ambos se solapan al hacer scroll. */
+html.is-portal-wiping #nav{view-transition-name:portal-nav}
+
+/* La capa entrante es contenido vivo, no una foto: sus transiciones deben estar ya
+   resueltas en el primer fotograma para que el recorte sea lo único que revele el
+   cambio. La barra queda fuera de la lista: sigue viajando dentro de esa capa con la
+   misma duración y curva que el recorte, pegada a su borde. */
+html.is-portal-wiping :is(.portal-showcase,.portal-swap,.portal-frame,.portal-browser,
+  .portal-tabs,.portal-intro,.portal-lever,.portal-lever-go,.portal-lever-arrow,
+  .portal-tab,.portal-tab-number){transition:none}
+html.is-portal-wiping .portal-indicators button::before{transition:none}
+
+::view-transition-image-pair(portal-showcase){isolation:auto}
+::view-transition-old(portal-showcase),
+::view-transition-new(portal-showcase){animation:none;mix-blend-mode:normal}
+::view-transition-group(portal-showcase){
+  animation-duration:var(--portal-speed);animation-timing-function:var(--ease);
+}
+
+html[data-portal-wipe="participant"]::view-transition-new(portal-showcase){
+  animation:portal-wipe-from-right var(--portal-speed) var(--ease);
+}
+html[data-portal-wipe="authority"]::view-transition-new(portal-showcase){
+  animation:portal-wipe-from-left var(--portal-speed) var(--ease);
+}
+
+/* El nav no cambia entre roles: se descarta su foto y se deja solo la capa viva, que
+   sigue reaccionando al scroll. Apilar ambas duplicaría el fondo translúcido. */
+::view-transition-group(portal-nav){z-index:1;animation:none}
+::view-transition-old(portal-nav){display:none}
+::view-transition-new(portal-nav){animation:none;mix-blend-mode:normal}
+
+/* la franja inicial queda tapada por la barra, así que ambas viajan juntas */
+@keyframes portal-wipe-from-right{
+  from{clip-path:inset(0 0 0 calc(100% - var(--portal-edge-width)))}
+  to{clip-path:inset(0 0 0 0)}
+}
+@keyframes portal-wipe-from-left{
+  from{clip-path:inset(0 calc(100% - var(--portal-edge-width)) 0 0)}
+  to{clip-path:inset(0 0 0 0)}
+}
+
+/* Los dos bloques conviven apilados; al ocultarse uno sigue visible mientras dura su
+   salida, y el que entra se hace visible de inmediato para poder fundirse. */
+.portal-swap-stack{display:grid}
+.portal-swap{
+  grid-area:1/1;visibility:hidden;opacity:0;
+  transition:opacity var(--portal-speed) var(--ease),transform var(--portal-speed) var(--ease),
+             visibility 0s linear var(--portal-speed);
+}
+.portal-showcase[data-role="authority"] .portal-swap[data-portal-role="participant"]{transform:translateX(28px)}
+.portal-showcase[data-role="participant"] .portal-swap[data-portal-role="authority"]{transform:translateX(-28px)}
+.portal-showcase[data-role="authority"] .portal-swap[data-portal-role="authority"],
+.portal-showcase[data-role="participant"] .portal-swap[data-portal-role="participant"]{
+  opacity:1;transform:none;visibility:visible;
+  transition:opacity var(--portal-speed) var(--ease),transform var(--portal-speed) var(--ease),
+             visibility 0s linear 0s;
+}
+
+/* ---------- palanca de dos estados ---------- */
+.portal-lever{
+  appearance:none;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
+  width:100%;max-width:900px;padding:0 0 18px;margin-bottom:30px;cursor:pointer;
+  background:transparent;border:0;border-bottom:1px solid var(--portal-line);
+  color:inherit;font:inherit;text-align:left;
+  transition:border-color var(--portal-speed) var(--ease);
+}
+.portal-lever:focus-visible{outline:2px solid var(--red);outline-offset:6px}
+.portal-lever-now{display:flex;flex-direction:column;gap:12px;min-width:0}
+.portal-lever-now .mono{color:var(--red)}
+.portal-lever-title{
+  display:block;font-family:'Archivo',sans-serif;font-weight:700;
+  font-size:2.1rem;line-height:1.02;letter-spacing:-.025em;white-space:nowrap;
+}
+.portal-lever-go{
+  display:flex;align-items:center;gap:12px;flex:none;padding-bottom:6px;
+  color:var(--portal-muted);transition:color .3s var(--ease);
+}
+.portal-lever:hover .portal-lever-go{color:var(--red)}
+.portal-lever-next{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;
+}
+.portal-lever-arrow{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border:1px solid var(--portal-line);border-radius:2px;flex:none;
+  transition:transform .3s var(--ease),border-color .3s var(--ease),
+             background .3s var(--ease),color .3s var(--ease);
+}
+.portal-lever:hover .portal-lever-arrow{transform:translateX(5px);background:var(--red);border-color:var(--red);color:#fff}
+
+.portal-head{margin-bottom:52px}
+.portal-head-copy{max-width:56ch}
+.portal-head h2{font-size:clamp(2rem,3.3vw,2.4rem);max-width:30ch;letter-spacing:-.025em;text-wrap:pretty}
+.portal-intro{color:var(--portal-muted);font-size:1.02rem;margin-top:18px;text-wrap:pretty;transition:color var(--portal-speed) var(--ease)}
+.portal-layout{display:grid;grid-template-columns:minmax(0,20fr) minmax(0,36fr);gap:40px;align-items:center}
+/* el reflejo de columnas es marcado, no animación: ocurre bajo el fundido */
+.portal-layout-reverse{grid-template-columns:minmax(0,36fr) minmax(0,20fr)}
+.portal-layout-reverse .portal-copy{grid-column:2}
+.portal-layout-reverse .portal-media{grid-column:1;grid-row:1}
+.portal-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.portal-tabs{display:flex;flex-direction:column;width:100%;border-top:1px solid var(--portal-line);transition:border-color var(--portal-speed) var(--ease)}
+.portal-tab{
+  appearance:none;width:100%;display:grid;grid-template-columns:30px minmax(0,1fr);gap:16px;
+  padding:17px 12px 17px 16px;border:0;border-bottom:1px solid var(--portal-line);
+  border-left:2px solid transparent;background:transparent;color:var(--portal-copy);
+  font:inherit;text-align:left;cursor:pointer;
+  transition:background .3s var(--ease),border-left-color .3s var(--ease),
+             border-bottom-color var(--portal-speed) var(--ease),color var(--portal-speed) var(--ease);
+}
+.portal-tab:hover{background:var(--portal-active)}
+.portal-tab.is-active{border-left-color:var(--red);background:var(--portal-active)}
+.portal-tab:focus-visible,.portal-indicators button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.portal-tab-number{
+  color:var(--portal-muted);font-family:'JetBrains Mono',monospace;font-size:.68rem;
+  letter-spacing:.12em;padding-top:3px;transition:color .25s;
+}
+.portal-tab.is-active .portal-tab-number{color:var(--red)}
+.portal-tab strong{display:block;font-family:'Archivo',sans-serif;font-size:1.06rem;line-height:1.2;letter-spacing:-.02em}
+.portal-tab small{display:block;color:var(--portal-muted);font-size:.92rem;line-height:1.5;margin-top:5px;text-wrap:pretty}
+.portal-media{display:flex;flex-direction:column;gap:14px;min-width:0}
+.portal-frame{
+  overflow:hidden;background:var(--portal-chrome);border:1px solid var(--portal-line);border-radius:8px;
+  box-shadow:var(--portal-shadow);
+  transition:background var(--portal-speed) var(--ease),border-color var(--portal-speed) var(--ease),
+             box-shadow var(--portal-speed) var(--ease);
+}
+.portal-browser{height:32px;display:flex;align-items:center;gap:10px;padding:0 12px;border-bottom:1px solid var(--portal-line);transition:border-color var(--portal-speed) var(--ease)}
+.portal-browser-dots{display:flex;gap:5px;flex:none}
+.portal-browser-dots i{display:block;width:7px;height:7px;border-radius:50%;background:var(--portal-muted);opacity:.45}
+.portal-browser-address{
+  min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  padding:2px 9px;border-radius:8px;background:rgba(127,127,127,.08);color:var(--portal-chrome-text);
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.03em;
+}
+.portal-panels{background:#fff}
+.portal-panel{margin:0}
+.portal-panel[hidden]{display:none}
+.portal-panel img{display:block;width:100%;height:auto;aspect-ratio:1849/993;object-fit:contain;background:#fff}
+.portal-status{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:30px}
+.portal-status>span{
+  color:var(--portal-muted);font-family:'JetBrains Mono',monospace;font-size:.66rem;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.portal-indicators{display:flex;gap:2px;flex:none}
+.portal-indicators button{
+  appearance:none;position:relative;width:36px;height:30px;border:0;background:transparent;cursor:pointer;
+}
+.portal-indicators button::before{
+  content:"";position:absolute;left:3px;right:3px;top:14px;height:2px;background:var(--portal-line);
+  transition:background .25s var(--ease),transform .25s var(--ease);
+}
+.portal-indicators button:hover::before{background:var(--portal-muted)}
+.portal-indicators button.is-active::before{background:var(--red);transform:scaleY(1.5)}
+
+/* Vista ampliada: reutiliza la ventana de navegador del marco pequeño.
+   El botón de ampliar y el cursor solo aparecen cuando el diálogo está disponible. */
+[data-portal-carousel] [data-carousel-expand]{display:none}
+[data-portal-carousel].has-lightbox [data-carousel-expand]{display:inline-flex}
+[data-portal-carousel].has-lightbox .portal-panel img{cursor:zoom-in}
+.portal-chrome-button{
+  appearance:none;flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;padding:0;border:0;border-radius:5px;background:transparent;
+  color:var(--portal-chrome-text);cursor:pointer;
+  transition:background .25s var(--ease),color .25s var(--ease);
+}
+.portal-chrome-button:hover{background:rgba(127,127,127,.16);color:var(--portal-copy)}
+.portal-chrome-button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.portal-lightbox{
+  --portal-line:rgba(255,255,255,.12);--portal-copy:#fff;--portal-muted:rgba(255,255,255,.55);
+  --portal-chrome:var(--ink-soft);--portal-chrome-text:rgba(255,255,255,.5);
+  /* el ancho se limita por la altura disponible para que la captura nunca se recorte:
+     32px de cabecera + 46px de marco, leyenda y holgura, y 1849/993 de proporción */
+  width:max(280px,min(1440px,94vw,calc((88vh - 78px) * 1.862)));max-width:94vw;max-height:92vh;
+  /* el margen automático solo centra en vertical si las cuatro posiciones están fijadas */
+  position:fixed;inset:0;margin:auto;
+  padding:0;border:0;background:transparent;color:var(--portal-copy);
+}
+.portal-lightbox[open]{display:flex;flex-direction:column;gap:14px}
+/* recibe el foco inicial para no abrir sobre el botón de cerrar, pero no es un control */
+.portal-lightbox:focus{outline:none}
+.portal-lightbox::backdrop{background:rgba(6,7,9,.88)}
+.portal-lightbox-frame{
+  overflow:hidden;background:var(--portal-chrome);border:1px solid var(--portal-line);border-radius:10px;
+  box-shadow:0 50px 110px -35px rgba(0,0,0,.85);
+}
+.portal-lightbox-canvas{background:#fff}
+.portal-lightbox-canvas img{display:block;width:100%;height:auto;aspect-ratio:1849/993;background:#fff}
+.portal-lightbox-caption{
+  color:var(--portal-muted);font-family:'JetBrains Mono',monospace;font-size:.66rem;
+  letter-spacing:.1em;text-transform:uppercase;text-align:center;
+}
+/* En pantallas estrechas la captura no resulta legible a lo ancho, así que crece
+   en vertical y la ventana se desplaza en horizontal, como haría un navegador. */
+@media(max-width:700px){
+  .portal-lightbox-canvas{overflow-x:auto}
+  .portal-lightbox-canvas img{width:auto;max-width:none;height:min(52vh,400px)}
+}
+@media(max-width:900px){
+  .portal-layout,.portal-layout-reverse{grid-template-columns:1fr;gap:42px}
+  .portal-layout-reverse .portal-copy,.portal-layout-reverse .portal-media{grid-column:auto;grid-row:auto}
+  .portal-layout-reverse .portal-copy{grid-row:1}
+  .portal-layout-reverse .portal-media{grid-row:2}
+  .portal-head{margin-bottom:36px}
+}
+/* la palanca no cabe en dos columnas en pantallas estrechas */
+@media(max-width:700px){
+  .portal-lever{flex-direction:column;align-items:flex-start;gap:20px}
+  .portal-lever-title{font-size:1.7rem;white-space:normal}
+  .portal-lever-go{padding-bottom:0}
+  .portal-lever-next{white-space:normal}
+}
+@media(max-width:560px){
+  .portal-showcase{padding:72px 0}
+  .portal-edge{width:5px}
+  .portal-lever{margin-bottom:24px}
+  .portal-lever-title{font-size:1.5rem}
+  .portal-tab{grid-template-columns:24px minmax(0,1fr);gap:10px;padding:15px 8px 15px 10px}
+  .portal-tab small{font-size:.86rem}
+  .portal-browser{height:28px;padding:0 9px}
+  .portal-browser-address{font-size:.5rem}
+  .portal-status{align-items:flex-start;gap:8px}
+  .portal-status>span{font-size:.58rem;padding-top:8px}
+  .portal-indicators button{width:27px}
+  .portal-chrome-button{width:20px;height:20px}
+  .portal-lightbox-caption{font-size:.58rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .portal-tab,.portal-indicators button::before,.portal-chrome-button,
+  .portal-showcase,.portal-edge,.portal-swap,.portal-frame,.portal-browser,
+  .portal-tabs,.portal-intro,.portal-lever,.portal-lever-go,.portal-lever-arrow{transition:none}
+}
+
 /* ---------- Benefits ---------- */
 .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:60px;border:1px solid var(--line)}
 .ben{background:var(--paper);padding:38px 32px;transition:background .3s}
